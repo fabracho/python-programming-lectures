@@ -1717,34 +1717,47 @@ div.output_prompt {
 <body>
 <div class="reveal">
 <div class="slides">
-
+<section>
+    <section>
+    
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h1 id="more-functions">More Functions</h1>
+</div>
+</div>
+</div><div class="fragment">
+    
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
 <p>Earlier we learned the most bare-boned versions of functions. In this section we will learn more general concepts about functions, such as how to use functions to return values, and how to pass different kinds of data structures between functions.</p>
 </div>
 </div>
 </div>
+    </div><div style=display:none>
+    
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><a href="07_dictionaries.ipynb">Previous: Dictionaries</a> | 
-<a href="00_index.ipynb">Home</a> |
-<a href="09_classes.ipynb">Next: Classes</a></p>
+<h4 id="reference-original-notebook-http-nbviewer-ipython-org-urls-raw-github-com-ehmatthes-intro_programming-master-notebooks-more_functions-ipynb-by-ehmatthes-https-twitter-com-ehmatthes-">Reference: <a href="http://nbviewer.ipython.org/urls/raw.github.com/ehmatthes/intro_programming/master/notebooks/more_functions.ipynb">Original Notebook</a> by <a href="https://twitter.com/ehmatthes">@ehmatthes</a></h4>
 </div>
 </div>
 </div>
+    </div><div style=display:none>
+    
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="contents">Contents</h1>
+<h1 id="-a-name-top-a-contents"><a name="top"></a>Contents</h1>
 <ul>
 <li><a href="#default_values">Default argument values</a><ul>
 <li><a href="#exercises_default_values">Exercises</a></li>
@@ -1768,6 +1781,10 @@ div.output_prompt {
 </div>
 </div>
 </div>
+    </div></section>
+    </section><section>
+    <section>
+    
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
 </div>
@@ -1777,7 +1794,8 @@ div.output_prompt {
 <p>When we first introduced functions, we started with this example:</p>
 </div>
 </div>
-</div>
+</div><div class="fragment">
+    
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">
@@ -1824,6 +1842,8 @@ Thank you very much for your efforts on this project.
 </div>
 
 </div>
+    </div></section><section>
+    
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
 </div>
@@ -1832,7 +1852,8 @@ Thank you very much for your efforts on this project.
 <p>This function works fine, but it fails if you don&#39;t pass in a value:</p>
 </div>
 </div>
-</div>
+</div><div class="fragment">
+    
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">
@@ -1840,8 +1861,7 @@ In&nbsp;[2]:
 </div>
 <div class="inner_cell">
     <div class="input_area">
-<div class="highlight"><pre><span class="c">###highlight=[10]</span>
-<span class="k">def</span> <span class="nf">thank_you</span><span class="p">(</span><span class="n">name</span><span class="p">):</span>
+<div class="highlight"><pre><span class="k">def</span> <span class="nf">thank_you</span><span class="p">(</span><span class="n">name</span><span class="p">):</span>
     <span class="c"># This function prints a two-line personalized thank you message.</span>
     <span class="k">print</span><span class="p">(</span><span class="s">&quot;</span><span class="se">\n</span><span class="s">You are doing good work, </span><span class="si">%s</span><span class="s">!&quot;</span> <span class="o">%</span> <span class="n">name</span><span class="p">)</span>
     <span class="k">print</span><span class="p">(</span><span class="s">&quot;Thank you very much for your efforts on this project.&quot;</span><span class="p">)</span>
@@ -1895,6 +1915,8 @@ Thank you very much for your efforts on this project.
 </div>
 
 </div>
+    </div></section><section>
+    
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
 </div>
@@ -1904,7 +1926,8 @@ Thank you very much for your efforts on this project.
 <p>If you want your function to do something by default, even if no information is passed to it, you can do so by giving your arguments default values. You do this by specifying the default values when you define the function:</p>
 </div>
 </div>
-</div>
+</div><div class="fragment">
+    
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">
@@ -1912,8 +1935,7 @@ In&nbsp;[5]:
 </div>
 <div class="inner_cell">
     <div class="input_area">
-<div class="highlight"><pre><span class="c">###highlight=[2,3,4,5]</span>
-<span class="k">def</span> <span class="nf">thank_you</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s">&#39;everyone&#39;</span><span class="p">):</span>
+<div class="highlight"><pre><span class="k">def</span> <span class="nf">thank_you</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s">&#39;everyone&#39;</span><span class="p">):</span>
     <span class="c"># This function prints a two-line personalized thank you message.</span>
     <span class="c">#  If no name is passed in, it prints a general thank you message</span>
     <span class="c">#  to everyone.</span>
@@ -1958,6 +1980,8 @@ Thank you very much for your efforts on this project.
 </div>
 
 </div>
+    </div><div class="fragment">
+    
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
 </div>
@@ -1967,15 +1991,18 @@ Thank you very much for your efforts on this project.
 </div>
 </div>
 </div>
+    </div><div style=display:none>
+    
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><a href="#">top</a></p>
+<p><a href="#top">top</a></p>
 </div>
 </div>
 </div>
+    </div>
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
 </div>
@@ -1996,28 +2023,91 @@ Thank you very much for your efforts on this project.
 </ul>
 </div>
 </div>
+</div><div style=display:none>
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">
+In&nbsp;[]:
 </div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class="highlight"><pre><span class="c"># Ex 8.1 : Games</span>
+
+<span class="c"># put your code here</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+    </div><div style=display:none>
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">
+In&nbsp;[]:
+</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class="highlight"><pre><span class="c"># Ex 8.2 : Favorite Movie</span>
+
+<span class="c"># put your code here</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+    </div><div style=display:none>
+    
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><a href="#">top</a></p>
+<p><a href="#top">top</a></p>
 </div>
 </div>
 </div>
+    </div></section>
+    </section><section>
+    <section>
+    
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h1 id="-a-name-positional_arguments-a-positional-arguments"><a name="positional_arguments"></a>Positional Arguments</h1>
+</div>
+</div>
+</div><div class="fragment">
+    
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
 <p>Much of what you will have to learn about using functions involves how to pass values from your calling statement to the function itself. The example we just looked at is pretty simple, in that the function only needed one argument in order to do its work. Let&#39;s take a look at a function that requires two arguments to do its work.</p>
 <p>Let&#39;s make a simple function that takes in three arguments. Let&#39;s make a function that takes in a person&#39;s first and last name, and then prints out everything it knows about the person.</p>
+</div>
+</div>
+</div>
+    </div></section><section>
+    
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
 <p>Here is a simple implementation of this function:</p>
 </div>
 </div>
-</div>
+</div><div class="fragment">
+    
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">
@@ -2070,6 +2160,8 @@ Age: 68
 </div>
 
 </div>
+    </div></section><section>
+    
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
 </div>
@@ -2078,10 +2170,21 @@ Age: 68
 <p>The arguments in this function are <code>first_name</code>, <code>last_name</code>, and <code>age</code>. These are called <em>positional arguments</em> because Python knows which value to assign to each by the order in which you give the function values. In the calling line</p>
 <pre><code>describe_person(&#39;brian&#39;, &#39;kernighan&#39;, 71)
 </code></pre><p>we send the values <em>brian</em>, <em>kernighan</em>, and <em>71</em> to the function. Python matches the first value <em>brian</em> with the first argument <code>first_name</code>. It matches the second value <em>kernighan</em> with the second argument <code>last_name</code>. Finally it matches the third value <em>71</em> with the third argument <code>age</code>.</p>
-<p>This is pretty straightforward, but it means we have to make sure to get the arguments in the right order. If we mess up the order, we get nonsense results or an error:</p>
+<p>This is pretty straightforward, but it means we have to make sure to get the arguments in the right order.</p>
 </div>
 </div>
+</div></section><section>
+    
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
 </div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>If we mess up the order, we get nonsense results or an error:</p>
+</div>
+</div>
+</div><div class="fragment">
+    
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">
@@ -2089,8 +2192,7 @@ In&nbsp;[23]:
 </div>
 <div class="inner_cell">
     <div class="input_area">
-<div class="highlight"><pre><span class="c">###highlight=[10,11,12]</span>
-<span class="k">def</span> <span class="nf">describe_person</span><span class="p">(</span><span class="n">first_name</span><span class="p">,</span> <span class="n">last_name</span><span class="p">,</span> <span class="n">age</span><span class="p">):</span>
+<div class="highlight"><pre><span class="k">def</span> <span class="nf">describe_person</span><span class="p">(</span><span class="n">first_name</span><span class="p">,</span> <span class="n">last_name</span><span class="p">,</span> <span class="n">age</span><span class="p">):</span>
     <span class="c"># This function takes in a person&#39;s first and last name,</span>
     <span class="c">#  and their age.</span>
     <span class="c"># It then prints this information out in a simple format.</span>
@@ -2138,6 +2240,8 @@ In&nbsp;[23]:
 </div>
 
 </div>
+    </div><div class="fragment">
+    
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
 </div>
@@ -2147,15 +2251,19 @@ In&nbsp;[23]:
 </div>
 </div>
 </div>
+    </div><div style=display:none>
+    
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><a href="#">top</a></p>
+<p><a href="#top">top</a></p>
 </div>
 </div>
 </div>
+    </div><div style=display:none>
+    
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
 </div>
@@ -2175,15 +2283,57 @@ In&nbsp;[23]:
 </div>
 </div>
 </div>
+    </div><div style=display:none>
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">
+In&nbsp;[1]:
+</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class="highlight"><pre><span class="c"># Ex 8.3 : Favorite Colors</span>
+
+<span class="c"># put your code here</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+    </div><div style=display:none>
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">
+In&nbsp;[]:
+</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class="highlight"><pre><span class="c"># Ex 8.4 : Phones</span>
+
+<span class="c"># put your code here</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+    </div><div style=display:none>
+    
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><a href="#">top</a></p>
+<p><a href="#top">top</a></p>
 </div>
 </div>
 </div>
+    </div></section><section>
+    
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
 </div>
@@ -2193,7 +2343,8 @@ In&nbsp;[23]:
 <p>Python allows us to use a syntax called <em>keyword arguments</em>. In this case, we can give the arguments in any order when we call the function, as long as we use the name of the arguments in our calling statement. Here is how the previous code can be made to work using keyword arguments:</p>
 </div>
 </div>
-</div>
+</div></section><section>
+    
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">
@@ -2245,7 +2396,8 @@ Age: 68
 </div>
 </div>
 
-</div>
+</div><div class="fragment">
+    
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
 </div>
@@ -2255,6 +2407,8 @@ Age: 68
 </div>
 </div>
 </div>
+    </div></section><section>
+    
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
 </div>
@@ -2264,7 +2418,8 @@ Age: 68
 <p>It can make good sense sometimes to mix positional and keyword arguments. In our previous example, we can expect this function to always take in a first name and a last name. Before we start mixing positional and keyword arguments, let&#39;s add another piece of information to our description of a person. Let&#39;s also go back to using just positional arguments for a moment:</p>
 </div>
 </div>
-</div>
+</div><div class="fragment">
+    
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">
@@ -2321,6 +2476,8 @@ Favorite language: Smalltalk
 </div>
 
 </div>
+    </div></section><section>
+    
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
 </div>
@@ -2329,7 +2486,8 @@ Favorite language: Smalltalk
 <p>We can expect anyone who uses this function to supply a first name and a last name, in that order. But now we are starting to include some information that might not apply to everyone. We can address this by keeping positional arguments for the first name and last name, but expect keyword arguments for everything else. We can show this works by adding a few more people, and having different information about each person:</p>
 </div>
 </div>
-</div>
+</div></section><section>
+    
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">
@@ -2337,8 +2495,7 @@ In&nbsp;[27]:
 </div>
 <div class="inner_cell">
     <div class="input_area">
-<div class="highlight"><pre><span class="c">###highlight=[2,7,8,9,10,11,12,13,14,15,16,17,18,19,20,22,23,24,25,26]</span>
-<span class="k">def</span> <span class="nf">describe_person</span><span class="p">(</span><span class="n">first_name</span><span class="p">,</span> <span class="n">last_name</span><span class="p">,</span> <span class="n">age</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">favorite_language</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">died</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
+<div class="highlight"><pre><span class="k">def</span> <span class="nf">describe_person</span><span class="p">(</span><span class="n">first_name</span><span class="p">,</span> <span class="n">last_name</span><span class="p">,</span> <span class="n">age</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">favorite_language</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">died</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
     <span class="c"># This function takes in a person&#39;s first and last name,</span>
     <span class="c">#  their age, and their favorite language.</span>
     <span class="c"># It then prints this information out in a simple format.</span>
@@ -2411,7 +2568,8 @@ Favorite language: Python
 </div>
 </div>
 
-</div>
+</div></section><section>
+    
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
 </div>
@@ -2420,16 +2578,18 @@ Favorite language: Python
 <p>Everyone needs a first and last name, but everthing else is optional. This code takes advantage of the Python keyword <code>None</code>, which acts as an empty value for a variable. This way, the user is free to supply any of the &#39;extra&#39; values they care to. Any arguments that don&#39;t receive a value are not displayed. Python matches these extra values by name, rather than by position. This is a very common and useful way to define functions.</p>
 </div>
 </div>
-</div>
+</div><div style=display:none>
+    
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><a href="#">top</a></p>
+<p><a href="#top">top</a></p>
 </div>
 </div>
 </div>
+    </div>
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
 </div>
@@ -2448,16 +2608,59 @@ Favorite language: Python
 </ul>
 </div>
 </div>
+</div><div style=display:none>
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">
+In&nbsp;[]:
 </div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class="highlight"><pre><span class="c"># Ex 8.5 : Sports Team</span>
+
+<span class="c"># put your code here</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+    </div><div style=display:none>
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">
+In&nbsp;[]:
+</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class="highlight"><pre><span class="c"># Ex 8.6 : Word Languages</span>
+
+<span class="c"># put your code here</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+    </div><div style=display:none>
+    
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><a href="#">top</a></p>
+<p><a href="#top">top</a></p>
 </div>
 </div>
 </div>
+    </div></section>
+    </section><section>
+    <section>
+    
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
 </div>
@@ -2473,7 +2676,8 @@ Favorite language: Python
 <p>There is another issue that we can address, though. Let&#39;s consider a function that takes two number in, and prints out the sum of the two numbers:</p>
 </div>
 </div>
-</div>
+</div></section><section>
+    
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">
@@ -2514,7 +2718,8 @@ The sum of your numbers is -1.
 </div>
 </div>
 
-</div>
+</div></section><section>
+    
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
 </div>
@@ -2523,7 +2728,8 @@ The sum of your numbers is -1.
 <p>This function appears to work well. But what if we pass it three numbers, which is a perfectly reasonable thing to do mathematically?</p>
 </div>
 </div>
-</div>
+</div><div class="fragment">
+    
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">
@@ -2531,8 +2737,7 @@ In&nbsp;[40]:
 </div>
 <div class="inner_cell">
     <div class="input_area">
-<div class="highlight"><pre><span class="c">###highlight=[8]</span>
-<span class="k">def</span> <span class="nf">adder</span><span class="p">(</span><span class="n">num_1</span><span class="p">,</span> <span class="n">num_2</span><span class="p">):</span>
+<div class="highlight"><pre><span class="k">def</span> <span class="nf">adder</span><span class="p">(</span><span class="n">num_1</span><span class="p">,</span> <span class="n">num_2</span><span class="p">):</span>
     <span class="c"># This function adds two numbers together, and prints the sum.</span>
     <span class="nb">sum</span> <span class="o">=</span> <span class="n">num_1</span> <span class="o">+</span> <span class="n">num_2</span>
     <span class="k">print</span><span class="p">(</span><span class="s">&quot;The sum of your numbers is </span><span class="si">%d</span><span class="s">.&quot;</span> <span class="o">%</span> <span class="nb">sum</span><span class="p">)</span>
@@ -2567,6 +2772,8 @@ In&nbsp;[40]:
 </div>
 
 </div>
+    </div><div class="fragment">
+    
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
 </div>
@@ -2576,6 +2783,8 @@ In&nbsp;[40]:
 </div>
 </div>
 </div>
+    </div></section><section>
+    
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
 </div>
@@ -2585,7 +2794,8 @@ In&nbsp;[40]:
 <p>Python gives us a syntax for letting a function accept an arbitrary number of arguments. If we place an argument at the end of the list of arguments, with an asterisk in front of it, that argument will collect any remaining values from the calling statement into a tuple. Here is an example demonstrating how this works:</p>
 </div>
 </div>
-</div>
+</div><div class="fragment">
+    
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">
@@ -2641,6 +2851,8 @@ arg_3: (3, 4, 5)
 </div>
 
 </div>
+    </div></section><section>
+    
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
 </div>
@@ -2649,7 +2861,8 @@ arg_3: (3, 4, 5)
 <p>You can use a for loop to process these other arguments:</p>
 </div>
 </div>
-</div>
+</div><div class="fragment">
+    
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">
@@ -2657,8 +2870,7 @@ In&nbsp;[30]:
 </div>
 <div class="inner_cell">
     <div class="input_area">
-<div class="highlight"><pre><span class="c">###highlight=[6,7]</span>
-<span class="k">def</span> <span class="nf">example_function</span><span class="p">(</span><span class="n">arg_1</span><span class="p">,</span> <span class="n">arg_2</span><span class="p">,</span> <span class="o">*</span><span class="n">arg_3</span><span class="p">):</span>
+<div class="highlight"><pre><span class="k">def</span> <span class="nf">example_function</span><span class="p">(</span><span class="n">arg_1</span><span class="p">,</span> <span class="n">arg_2</span><span class="p">,</span> <span class="o">*</span><span class="n">arg_3</span><span class="p">):</span>
     <span class="c"># Let&#39;s look at the argument values.</span>
     <span class="k">print</span><span class="p">(</span><span class="s">&#39;</span><span class="se">\n</span><span class="s">arg_1:&#39;</span><span class="p">,</span> <span class="n">arg_1</span><span class="p">)</span>
     <span class="k">print</span><span class="p">(</span><span class="s">&#39;arg_2:&#39;</span><span class="p">,</span> <span class="n">arg_2</span><span class="p">)</span>
@@ -2709,6 +2921,8 @@ arg_3 value: 5
 </div>
 
 </div>
+    </div></section><section>
+    
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
 </div>
@@ -2717,7 +2931,8 @@ arg_3 value: 5
 <p>We can now rewrite the adder() function to accept two or more arguments, and print the sum of those numbers:</p>
 </div>
 </div>
-</div>
+</div><div class="fragment">
+    
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">
@@ -2765,6 +2980,8 @@ The sum of your numbers is 6.
 </div>
 
 </div>
+    </div></section><section>
+    
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
 </div>
@@ -2776,10 +2993,20 @@ The sum of your numbers is 6.
 <li>stores the second value in the calling statement in the argument <code>num_2</code>;</li>
 <li>stores all other values in the calling statement as a tuple in the argument <code>nums</code>.</li>
 </ul>
+</div>
+</div>
+</div></section><section>
+    
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
 <p>We can then &quot;unpack&quot; these values, using a for loop. We can demonstrate how flexible this function is by calling it a number of times, with a different number of arguments each time.</p>
 </div>
 </div>
-</div>
+</div><div class="fragment">
+    
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">
@@ -2787,8 +3014,7 @@ In&nbsp;[28]:
 </div>
 <div class="inner_cell">
     <div class="input_area">
-<div class="highlight"><pre><span class="c">###highlight=[19,20,21,22]</span>
-<span class="k">def</span> <span class="nf">adder</span><span class="p">(</span><span class="n">num_1</span><span class="p">,</span> <span class="n">num_2</span><span class="p">,</span> <span class="o">*</span><span class="n">nums</span><span class="p">):</span>
+<div class="highlight"><pre><span class="k">def</span> <span class="nf">adder</span><span class="p">(</span><span class="n">num_1</span><span class="p">,</span> <span class="n">num_2</span><span class="p">,</span> <span class="o">*</span><span class="n">nums</span><span class="p">):</span>
     <span class="c"># This function adds the given numbers together,</span>
     <span class="c">#  and prints the sum.</span>
     
@@ -2835,15 +3061,19 @@ The sum of your numbers is 15.
 </div>
 
 </div>
+    </div><div style=display:none>
+    
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><a href="#">top</a></p>
+<p><a href="#top">top</a></p>
 </div>
 </div>
 </div>
+    </div></section><section>
+    
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
 </div>
@@ -2853,7 +3083,8 @@ The sum of your numbers is 15.
 <p>Python also provides a syntax for accepting an arbitrary number of keyword arguments. The syntax looks like this:</p>
 </div>
 </div>
-</div>
+</div><div class="fragment">
+    
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">
@@ -2909,6 +3140,8 @@ arg_3: {&apos;value_5&apos;: &apos;e&apos;, &apos;value_4&apos;: &apos;d&apos;, 
 </div>
 
 </div>
+    </div></section><section>
+    
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
 </div>
@@ -2917,7 +3150,8 @@ arg_3: {&apos;value_5&apos;: &apos;e&apos;, &apos;value_4&apos;: &apos;d&apos;, 
 <p>The third argument has two asterisks in front of it, which tells Python to collect all remaining key-value arguments in the calling statement. This argument is commonly named <em>kwargs</em>. We see in the output that these key-values are stored in a dictionary. We can loop through this dictionary to work with all of the values that are passed into the function:</p>
 </div>
 </div>
-</div>
+</div><div class="fragment">
+    
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">
@@ -2925,8 +3159,7 @@ In&nbsp;[36]:
 </div>
 <div class="inner_cell">
     <div class="input_area">
-<div class="highlight"><pre><span class="c">###highlight=[6,7]</span>
-<span class="k">def</span> <span class="nf">example_function</span><span class="p">(</span><span class="n">arg_1</span><span class="p">,</span> <span class="n">arg_2</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<div class="highlight"><pre><span class="k">def</span> <span class="nf">example_function</span><span class="p">(</span><span class="n">arg_1</span><span class="p">,</span> <span class="n">arg_2</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
     <span class="c"># Let&#39;s look at the argument values.</span>
     <span class="k">print</span><span class="p">(</span><span class="s">&#39;</span><span class="se">\n</span><span class="s">arg_1:&#39;</span><span class="p">,</span> <span class="n">arg_1</span><span class="p">)</span>
     <span class="k">print</span><span class="p">(</span><span class="s">&#39;arg_2:&#39;</span><span class="p">,</span> <span class="n">arg_2</span><span class="p">)</span>
@@ -2977,6 +3210,8 @@ arg_3 value: c
 </div>
 
 </div>
+    </div></section><section>
+    
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
 </div>
@@ -2985,7 +3220,8 @@ arg_3 value: c
 <p>Earlier we created a function that let us describe a person, and we had three things we could describe about a person. We could include their age, their favorite language, and the date they passed away. But that was the only information we could include, because it was the only information that the function was prepared to handle:</p>
 </div>
 </div>
-</div>
+</div><div class="fragment">
+    
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">
@@ -3067,6 +3303,8 @@ Favorite language: Python
 </div>
 
 </div>
+    </div></section><section>
+    
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
 </div>
@@ -3075,7 +3313,8 @@ Favorite language: Python
 <p>We can make this function much more flexible by accepting any number of keyword arguments. Here is what the function looks like, using the syntax for accepting as many keyword arguments as the caller wants to provide:</p>
 </div>
 </div>
-</div>
+</div><div class="fragment">
+    
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">
@@ -3083,8 +3322,7 @@ In&nbsp;[4]:
 </div>
 <div class="inner_cell">
     <div class="input_area">
-<div class="highlight"><pre><span class="c">###highlight=[2,3,4,10,11,12]</span>
-<span class="k">def</span> <span class="nf">describe_person</span><span class="p">(</span><span class="n">first_name</span><span class="p">,</span> <span class="n">last_name</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<div class="highlight"><pre><span class="k">def</span> <span class="nf">describe_person</span><span class="p">(</span><span class="n">first_name</span><span class="p">,</span> <span class="n">last_name</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
     <span class="c"># This function takes in a person&#39;s first and last name,</span>
     <span class="c">#  and then an arbitrary number of keyword arguments.</span>
     
@@ -3153,6 +3391,8 @@ Favorite_Language: Python
 </div>
 
 </div>
+    </div></section><section>
+    
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
 </div>
@@ -3161,7 +3401,8 @@ Favorite_Language: Python
 <p>This is pretty neat. We get the same output, and we don&#39;t have to include a bunch of if tests to see what kind of information was passed into the function. We always require a first name and a last name, but beyond that the caller is free to provide any keyword-value pair to describe a person. Let&#39;s show that any kind of information can be provided to this function. We also clean up the output by replacing any underscores in the keys with a space.</p>
 </div>
 </div>
-</div>
+</div><div class="fragment">
+    
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">
@@ -3169,8 +3410,7 @@ In&nbsp;[6]:
 </div>
 <div class="inner_cell">
     <div class="input_area">
-<div class="highlight"><pre><span class="c">###highlight=[12,17,18,19,20,21]</span>
-<span class="k">def</span> <span class="nf">describe_person</span><span class="p">(</span><span class="n">first_name</span><span class="p">,</span> <span class="n">last_name</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<div class="highlight"><pre><span class="k">def</span> <span class="nf">describe_person</span><span class="p">(</span><span class="n">first_name</span><span class="p">,</span> <span class="n">last_name</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
     <span class="c"># This function takes in a person&#39;s first and last name,</span>
     <span class="c">#  and then an arbitrary number of keyword arguments.</span>
     
@@ -3243,6 +3483,8 @@ Favorite Language: Python
 </div>
 
 </div>
+    </div></section><section>
+    
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
 </div>
@@ -3251,16 +3493,32 @@ Favorite Language: Python
 <p>There is plenty more to learn about using functions, but with all of this flexibility in terms of how to accept arguments for your functions you should be able to write simple, clean functions that do exactly what you need them to do.</p>
 </div>
 </div>
-</div>
+</div><div style=display:none>
+    
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><a href="#">top</a></p>
+<p><a href="#top">top</a></p>
 </div>
 </div>
 </div>
+    </div><div style=display:none>
+    
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><a href="07_dictionaries.ipynb">Previous: Dictionaries</a> | 
+<a href="Index.ipynb">Home</a> |
+<a href="09_classes.ipynb">Next: Classes</a></p>
+</div>
+</div>
+</div>
+    </div></section>
+    </section>
 </div>
 </div>
 

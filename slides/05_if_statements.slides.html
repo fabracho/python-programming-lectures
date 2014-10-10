@@ -1717,34 +1717,47 @@ div.output_prompt {
 <body>
 <div class="reveal">
 <div class="slides">
-
+<section>
+    <section>
+    
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h1 id="if-statements">If Statements</h1>
+</div>
+</div>
+</div><div class="fragment">
+    
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
 <p>By allowing you to respond selectively to different situations and conditions, if statements open up whole new possibilities for your programs. In this section, you will learn how to test for certain conditions, and then respond in appropriate ways to those conditions.</p>
 </div>
 </div>
 </div>
+    </div><div style=display:none>
+    
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><a href="04_introducing_functions.ipynb">Previous: Introducing Functions</a> | 
-<a href="00_index.ipynb">Home</a> |
-<a href="06_while_input.ipynb">Next: While Loops and Input</a></p>
+<h4 id="reference-original-notebook-http-nbviewer-ipython-org-urls-raw-github-com-ehmatthes-intro_programming-master-notebooks-if_statements-ipynb-by-ehmatthes-https-twitter-com-ehmatthes-">Reference: <a href="http://nbviewer.ipython.org/urls/raw.github.com/ehmatthes/intro_programming/master/notebooks/if_statements.ipynb">Original Notebook</a> by <a href="https://twitter.com/ehmatthes">@ehmatthes</a></h4>
 </div>
 </div>
 </div>
+    </div><div style=display:none>
+    
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="contents">Contents</h1>
+<h1 id="-a-name-top-a-contents"><a name="top"></a>Contents</h1>
 <ul>
 <li><a href="#what">What is an <em>if</em> statement?</a><ul>
 <li><a href="#example">Example</a></li>
@@ -1772,6 +1785,10 @@ div.output_prompt {
 </div>
 </div>
 </div>
+    </div></section>
+    </section><section>
+    <section>
+    
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
 </div>
@@ -1779,6 +1796,15 @@ div.output_prompt {
 <div class="text_cell_render border-box-sizing rendered_html">
 <h1 id="-a-name-what-a-what-is-an-if-statement-"><a name='what'></a>What is an <em>if</em> statement?</h1>
 <p>An <em>if</em> statement tests for a condition, and then responds to that condition. If the condition is true, then whatever action is listed next gets carried out. You can test for multiple conditions at the same time, and respond appropriately to each condition.</p>
+</div>
+</div>
+</div></section><section>
+    
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
 <h2 id="-a-name-example-a-example"><a name='example'></a>Example</h2>
 <p>Here is an example that shows a number of the desserts I like. It lists those desserts, but lets you know which one is my favorite.</p>
 </div>
@@ -1787,7 +1813,7 @@ div.output_prompt {
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">
-In&nbsp;[2]:
+In&nbsp;[1]:
 </div>
 <div class="inner_cell">
     <div class="input_area">
@@ -1828,7 +1854,8 @@ I like cookies.
 </div>
 </div>
 
-</div>
+</div></section><section>
+    
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
 </div>
@@ -1847,16 +1874,21 @@ I like cookies.
 <p>You can test as many conditions as you want in an if statement, as you will see in a little bit.</p>
 </div>
 </div>
-</div>
+</div><div style=display:none>
+    
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><a href="#">top</a></p>
+<p><a href="#top">top</a></p>
 </div>
 </div>
 </div>
+    </div></section>
+    </section><section>
+    <section>
+    
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
 </div>
@@ -1876,27 +1908,80 @@ I like cookies.
 </li>
 <li><a href="#in_list">You can test if an item is <strong>in</strong> a list.</a></li>
 </ul>
+</div>
+</div>
+</div></section><section>
+    
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
 <h3 id="whitespace">Whitespace</h3>
-<p>Remember <a href="http://introtopython.org/lists_tuples.html#pep8">learning about</a> PEP 8? There is a <a href="http://www.python.org/dev/peps/pep-0008/#other-recommendations">section of PEP 8</a> that tells us it&#39;s a good idea to put a single space on either side of all of these comparison operators. If you&#39;re not sure what this means, just follow the style of the examples you see below.</p>
+<p>Remember <a href="04_lists_tuples.html#pep8">learning about</a> PEP 8? There is a <a href="http://www.python.org/dev/peps/pep-0008/#other-recommendations">section of PEP 8</a> that tells us it&#39;s a good idea to put a single space on either side of all of these comparison operators. If you&#39;re not sure what this means, just follow the style of the examples you see below.</p>
 </div>
 </div>
-</div>
+</div></section>
+    </section><section>
+    <section>
+    
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h2 id="-a-name-equality-a-equality"><a name='equality'></a>Equality</h2>
+</div>
+</div>
+</div><div class="fragment">
+    
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
 <p>Two items are <em>equal</em> if they have the same value. You can test for equality between numbers, strings, and a number of other objects which you will learn about later. Some of these results may be surprising, so take a careful look at the examples below.</p>
+</div>
+</div>
+</div>
+    </div><div class="fragment">
+    
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
 <p>In Python, as in many programming languages, two equals signs tests for equality.</p>
+</div>
+</div>
+</div>
+    </div><div class="fragment">
+    
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
 <p><strong>Watch out!</strong> Be careful of accidentally using one equals sign, which can really throw things off because that one equals sign actually sets your item to the value you are testing for!</p>
 </div>
 </div>
 </div>
+    </div></section><section>
+    
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="examples">Examples</h1>
+</div>
+</div>
+</div></section><section>
+    
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">
-In&nbsp;[3]:
+In&nbsp;[2]:
 </div>
 <div class="inner_cell">
     <div class="input_area">
@@ -1912,7 +1997,7 @@ In&nbsp;[3]:
 
 
 <div class="output_area"><div class="prompt output_prompt">
-    Out[3]:</div>
+    Out[2]:</div>
 
 
 <div class="output_text output_subarea output_pyout">
@@ -1926,7 +2011,8 @@ True
 </div>
 </div>
 
-</div>
+</div><div class="fragment">
+    
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">
@@ -1961,6 +2047,8 @@ False
 </div>
 
 </div>
+    </div><div class="fragment">
+    
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">
@@ -1995,6 +2083,8 @@ True
 </div>
 
 </div>
+    </div><div class="fragment">
+    
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">
@@ -2029,6 +2119,8 @@ True
 </div>
 
 </div>
+    </div><div class="fragment">
+    
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">
@@ -2063,6 +2155,8 @@ False
 </div>
 
 </div>
+    </div><div class="fragment">
+    
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">
@@ -2097,6 +2191,8 @@ True
 </div>
 
 </div>
+    </div><div class="fragment">
+    
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">
@@ -2131,6 +2227,8 @@ False
 </div>
 
 </div>
+    </div><div class="fragment">
+    
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">
@@ -2165,26 +2263,41 @@ True
 </div>
 
 </div>
+    </div><div style=display:none>
+    
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><a href="#">top</a></p>
+<p><a href="#top">top</a></p>
 </div>
 </div>
 </div>
+    </div></section><section>
+    
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h2 id="-a-name-inequality-a-inequality"><a name='inequality'></a>Inequality</h2>
+</div>
+</div>
+</div><div class="fragment">
+    
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
 <p>Two items are <em>inequal</em> if they do not have the same value. In Python, we test for inequality using the exclamation point and one equals sign.</p>
 <p>Sometimes you want to test for equality and if that fails, assume inequality. Sometimes it makes more sense to test for inequality directly.</p>
 </div>
 </div>
 </div>
+    </div></section><section>
+    
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">
@@ -2218,7 +2331,8 @@ True
 </div>
 </div>
 
-</div>
+</div><div class="fragment">
+    
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">
@@ -2253,6 +2367,8 @@ False
 </div>
 
 </div>
+    </div><div class="fragment">
+    
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">
@@ -2287,21 +2403,36 @@ True
 </div>
 
 </div>
+    </div><div style=display:none>
+    
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><a href="#">top</a></p>
+<p><a href="#top">top</a></p>
 </div>
 </div>
 </div>
+    </div></section>
+    </section><section>
+    <section>
+    
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h2 id="-a-name-other_inequalities-a-other-inequalities"><a name='other_inequalities'></a>Other Inequalities</h2>
+</div>
+</div>
+</div></section><section>
+    
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
 <h3 id="greater-than">greater than</h3>
 </div>
 </div>
@@ -2339,7 +2470,8 @@ True
 </div>
 </div>
 
-</div>
+</div></section><section>
+    
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
 </div>
@@ -2382,7 +2514,8 @@ True
 </div>
 </div>
 
-</div>
+</div><div class="fragment">
+    
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">
@@ -2417,6 +2550,8 @@ True
 </div>
 
 </div>
+    </div></section><section>
+    
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
 </div>
@@ -2459,7 +2594,8 @@ True
 </div>
 </div>
 
-</div>
+</div></section><section>
+    
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
 </div>
@@ -2502,7 +2638,8 @@ True
 </div>
 </div>
 
-</div>
+</div><div class="fragment">
+    
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">
@@ -2537,15 +2674,21 @@ True
 </div>
 
 </div>
+    </div><div style=display:none>
+    
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><a href="#">top</a></p>
+<p><a href="#top">top</a></p>
 </div>
 </div>
 </div>
+    </div></section>
+    </section><section>
+    <section>
+    
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
 </div>
@@ -2555,7 +2698,8 @@ True
 <p>You can check if an item is in a list using the <strong>in</strong> keyword.</p>
 </div>
 </div>
-</div>
+</div><div class="fragment">
+    
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">
@@ -2591,6 +2735,8 @@ True
 </div>
 
 </div>
+    </div><div class="fragment">
+    
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">
@@ -2626,6 +2772,8 @@ False
 </div>
 
 </div>
+    </div><div style=display:none>
+    
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
 </div>
@@ -2640,15 +2788,40 @@ False
 </div>
 </div>
 </div>
+    </div><div style=display:none>
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">
+In&nbsp;[]:
+</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class="highlight"><pre><span class="c"># Ex 5.1 : True and False</span>
+
+<span class="c"># put your code here</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+    </div><div style=display:none>
+    
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><a href="#">top</a></p>
+<p><a href="#top">top</a></p>
 </div>
 </div>
 </div>
+    </div></section>
+    </section><section>
+    <section>
+    
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
 </div>
@@ -2658,7 +2831,8 @@ False
 <p>You can test whatever series of conditions you want to, and you can test your conditions in any combination you want.</p>
 </div>
 </div>
-</div>
+</div></section><section>
+    
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
 </div>
@@ -2668,7 +2842,8 @@ False
 <p>The simplest test has a single <strong>if</strong> statement, and a single statement to execute if the condition is <strong>True</strong>.</p>
 </div>
 </div>
-</div>
+</div><div class="fragment">
+    
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">
@@ -2703,6 +2878,8 @@ Wow, we have a lot of dogs here!
 </div>
 
 </div>
+    </div></section><section>
+    
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
 </div>
@@ -2711,7 +2888,8 @@ Wow, we have a lot of dogs here!
 <p>In this situation, nothing happens if the test does not pass.</p>
 </div>
 </div>
-</div>
+</div><div class="fragment">
+    
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">
@@ -2719,8 +2897,7 @@ In&nbsp;[28]:
 </div>
 <div class="inner_cell">
     <div class="input_area">
-<div class="highlight"><pre><span class="c">###highlight=[2]</span>
-<span class="n">dogs</span> <span class="o">=</span> <span class="p">[</span><span class="s">&#39;willie&#39;</span><span class="p">,</span> <span class="s">&#39;hootz&#39;</span><span class="p">]</span>
+<div class="highlight"><pre><span class="n">dogs</span> <span class="o">=</span> <span class="p">[</span><span class="s">&#39;willie&#39;</span><span class="p">,</span> <span class="s">&#39;hootz&#39;</span><span class="p">]</span>
 
 <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">dogs</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">3</span><span class="p">:</span>
     <span class="k">print</span><span class="p">(</span><span class="s">&quot;Wow, we have a lot of dogs here!&quot;</span><span class="p">)</span>
@@ -2731,6 +2908,8 @@ In&nbsp;[28]:
 </div>
 
 </div>
+    </div><div class="fragment">
+    
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
 </div>
@@ -2740,6 +2919,8 @@ In&nbsp;[28]:
 </div>
 </div>
 </div>
+    </div></section><section>
+    
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
 </div>
@@ -2749,7 +2930,8 @@ In&nbsp;[28]:
 <p>Many times you will want to respond in two possible ways to a test. If the test evaluates to <strong>True</strong>, you will want to do one thing. If the test evaluates to <strong>False</strong>, you will want to do something else. The <strong>if-else</strong> structure lets you do that easily. Here&#39;s what it looks like:</p>
 </div>
 </div>
-</div>
+</div><div class="fragment">
+    
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">
@@ -2786,6 +2968,8 @@ Wow, we have a lot of dogs here!
 </div>
 
 </div>
+    </div></section><section>
+    
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
 </div>
@@ -2794,7 +2978,8 @@ Wow, we have a lot of dogs here!
 <p>Our results have not changed in this case, because if the test evaluates to <strong>True</strong> only the statements under the <strong>if</strong> statement are executed. The statements under <strong>else</strong> area only executed if the test fails:</p>
 </div>
 </div>
-</div>
+</div><div class="fragment">
+    
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">
@@ -2802,8 +2987,7 @@ In&nbsp;[31]:
 </div>
 <div class="inner_cell">
     <div class="input_area">
-<div class="highlight"><pre><span class="c">###highlight=[2]</span>
-<span class="n">dogs</span> <span class="o">=</span> <span class="p">[</span><span class="s">&#39;willie&#39;</span><span class="p">,</span> <span class="s">&#39;hootz&#39;</span><span class="p">]</span>
+<div class="highlight"><pre><span class="n">dogs</span> <span class="o">=</span> <span class="p">[</span><span class="s">&#39;willie&#39;</span><span class="p">,</span> <span class="s">&#39;hootz&#39;</span><span class="p">]</span>
 
 <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">dogs</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">3</span><span class="p">:</span>
     <span class="k">print</span><span class="p">(</span><span class="s">&quot;Wow, we have a lot of dogs here!&quot;</span><span class="p">)</span>
@@ -2832,6 +3016,8 @@ Okay, this is a reasonable number of dogs.
 </div>
 
 </div>
+    </div><div class="fragment">
+    
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
 </div>
@@ -2841,6 +3027,8 @@ Okay, this is a reasonable number of dogs.
 </div>
 </div>
 </div>
+    </div></section><section>
+    
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
 </div>
@@ -2851,7 +3039,8 @@ Okay, this is a reasonable number of dogs.
 <p>There is no limit to how many conditions you can test. You always need one if statement to start the chain, and you can never have more than one else statement. But you can have as many elif statements as you want.</p>
 </div>
 </div>
-</div>
+</div><div class="fragment">
+    
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">
@@ -2890,6 +3079,8 @@ Holy mackerel, we might as well start a dog hostel!
 </div>
 
 </div>
+    </div></section><section>
+    
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
 </div>
@@ -2898,7 +3089,8 @@ Holy mackerel, we might as well start a dog hostel!
 <p>It is important to note that in situations like this, only the first test is evaluated. In an if-elif-else chain, once a test passes the rest of the conditions are ignored.</p>
 </div>
 </div>
-</div>
+</div><div class="fragment">
+    
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">
@@ -2906,8 +3098,7 @@ In&nbsp;[33]:
 </div>
 <div class="inner_cell">
     <div class="input_area">
-<div class="highlight"><pre><span class="c">###highlight=[2]</span>
-<span class="n">dogs</span> <span class="o">=</span> <span class="p">[</span><span class="s">&#39;willie&#39;</span><span class="p">,</span> <span class="s">&#39;hootz&#39;</span><span class="p">,</span> <span class="s">&#39;peso&#39;</span><span class="p">,</span> <span class="s">&#39;monty&#39;</span><span class="p">]</span>
+<div class="highlight"><pre><span class="n">dogs</span> <span class="o">=</span> <span class="p">[</span><span class="s">&#39;willie&#39;</span><span class="p">,</span> <span class="s">&#39;hootz&#39;</span><span class="p">,</span> <span class="s">&#39;peso&#39;</span><span class="p">,</span> <span class="s">&#39;monty&#39;</span><span class="p">]</span>
 
 <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">dogs</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="mi">5</span><span class="p">:</span>
     <span class="k">print</span><span class="p">(</span><span class="s">&quot;Holy mackerel, we might as well start a dog hostel!&quot;</span><span class="p">)</span>
@@ -2938,6 +3129,8 @@ Wow, we have a lot of dogs here!
 </div>
 
 </div>
+    </div></section><section>
+    
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
 </div>
@@ -2946,7 +3139,8 @@ Wow, we have a lot of dogs here!
 <p>The first test failed, so Python evaluated the second test. That test passed, so the statement corresponding to <code>len(dogs) &gt;= 3</code> is executed.</p>
 </div>
 </div>
-</div>
+</div><div class="fragment">
+    
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">
@@ -2954,8 +3148,7 @@ In&nbsp;[34]:
 </div>
 <div class="inner_cell">
     <div class="input_area">
-<div class="highlight"><pre><span class="c">###highlight=[2]</span>
-<span class="n">dogs</span> <span class="o">=</span> <span class="p">[</span><span class="s">&#39;willie&#39;</span><span class="p">,</span> <span class="s">&#39;hootz&#39;</span><span class="p">]</span>
+<div class="highlight"><pre><span class="n">dogs</span> <span class="o">=</span> <span class="p">[</span><span class="s">&#39;willie&#39;</span><span class="p">,</span> <span class="s">&#39;hootz&#39;</span><span class="p">]</span>
 
 <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">dogs</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="mi">5</span><span class="p">:</span>
     <span class="k">print</span><span class="p">(</span><span class="s">&quot;Holy mackerel, we might as well start a dog hostel!&quot;</span><span class="p">)</span>
@@ -2986,6 +3179,8 @@ Okay, this is a reasonable number of dogs.
 </div>
 
 </div>
+    </div></section><section>
+    
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
 </div>
@@ -2994,7 +3189,8 @@ Okay, this is a reasonable number of dogs.
 <p>In this situation, the first two tests fail, so the statement in the else clause is executed. Note that this statement would be executed even if there are no dogs at all:</p>
 </div>
 </div>
-</div>
+</div><div class="fragment">
+    
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">
@@ -3002,8 +3198,7 @@ In&nbsp;[35]:
 </div>
 <div class="inner_cell">
     <div class="input_area">
-<div class="highlight"><pre><span class="c">###highlight=[2]</span>
-<span class="n">dogs</span> <span class="o">=</span> <span class="p">[]</span>
+<div class="highlight"><pre><span class="n">dogs</span> <span class="o">=</span> <span class="p">[]</span>
 
 <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">dogs</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="mi">5</span><span class="p">:</span>
     <span class="k">print</span><span class="p">(</span><span class="s">&quot;Holy mackerel, we might as well start a dog hostel!&quot;</span><span class="p">)</span>
@@ -3034,6 +3229,8 @@ Okay, this is a reasonable number of dogs.
 </div>
 
 </div>
+    </div></section><section>
+    
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
 </div>
@@ -3042,7 +3239,8 @@ Okay, this is a reasonable number of dogs.
 <p>Note that you don&#39;t have to take any action at all when you start a series of if statements. You could simply do nothing in the situation that there are no dogs by replacing the <code>else</code> clause with another <code>elif</code> clause:</p>
 </div>
 </div>
-</div>
+</div><div class="fragment">
+    
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">
@@ -3066,6 +3264,8 @@ In&nbsp;[36]:
 </div>
 
 </div>
+    </div></section><section>
+    
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
 </div>
@@ -3074,7 +3274,8 @@ In&nbsp;[36]:
 <p>In this case, we only print a message if there is at least one dog present. Of course, you could add a new <code>else</code> clause to respond to the situation in which there are no dogs at all:</p>
 </div>
 </div>
-</div>
+</div><div class="fragment">
+    
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">
@@ -3116,6 +3317,8 @@ I wish we had a dog here.
 </div>
 
 </div>
+    </div><div class="fragment">
+    
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
 </div>
@@ -3125,6 +3328,8 @@ I wish we had a dog here.
 </div>
 </div>
 </div>
+    </div><div style=display:none>
+    
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
 </div>
@@ -3159,24 +3364,78 @@ I wish we had a dog here.
 </div>
 </div>
 </div>
+    </div><div style=display:none>
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">
+In&nbsp;[]:
+</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class="highlight"><pre><span class="c"># Ex 5.2 : Three is a Crowd</span>
+
+<span class="c"># put your code here</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+    </div><div style=display:none>
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">
+In&nbsp;[]:
+</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class="highlight"><pre><span class="c"># Ex 5.3 : Three is a Crowd - Part 2</span>
+
+<span class="c"># put your code here</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+    </div><div style=display:none>
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">
+In&nbsp;[]:
+</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class="highlight"><pre><span class="c"># Ex 5.4 : Six is a Mob</span>
+
+<span class="c"># put your code here</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+    </div><div style=display:none>
+    
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><a name='if-elif'></a></p>
+<p><a href="#top">top</a></p>
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p><a href="#">top</a></p>
-</div>
-</div>
-</div>
+    </div></section>
+    </section><section>
+    <section>
+    
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
 </div>
@@ -3187,7 +3446,8 @@ I wish we had a dog here.
 <p>There are situations in which you want to run a series of tests, where every single test runs. These are situations where any or all of the tests could pass, and you want to respond to each passing test. Consider the following example, where we want to greet each dog that is present:</p>
 </div>
 </div>
-</div>
+</div></section><section>
+    
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">
@@ -3228,7 +3488,8 @@ Hello, Hootz!
 </div>
 </div>
 
-</div>
+</div></section><section>
+    
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
 </div>
@@ -3237,7 +3498,8 @@ Hello, Hootz!
 <p>If we had done this using an if-elif-else chain, only the first dog that is present would be greeted:</p>
 </div>
 </div>
-</div>
+</div><div class="fragment">
+    
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">
@@ -3279,6 +3541,8 @@ Hello, Willie!
 </div>
 
 </div>
+    </div></section><section>
+    
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
 </div>
@@ -3287,7 +3551,8 @@ Hello, Willie!
 <p>Of course, this could be written much more cleanly using lists and for loops. See if you can follow this code.</p>
 </div>
 </div>
-</div>
+</div><div class="fragment">
+    
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">
@@ -3326,6 +3591,8 @@ Hello, Hootz!
 </div>
 
 </div>
+    </div><div class="fragment">
+    
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
 </div>
@@ -3335,25 +3602,53 @@ Hello, Hootz!
 </div>
 </div>
 </div>
+    </div><div style=display:none>
+    
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><a href="#">top</a></p>
+<p><a href="#top">top</a></p>
 </div>
 </div>
 </div>
+    </div></section>
+    </section><section>
+    <section>
+    
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h1 id="-a-name-true_false-a-true-and-false-values"><a name="true_false"></a>True and False values</h1>
-<p>Every value can be evaluated as True or False. The general rule is that any non-zero or non-empty value will evaluate to True. If you are ever unsure, you can open a Python terminal and write two lines to find out if the value you are considering is True or False. Take a look at the following examples, keep them in mind, and test any value you are curious about. I am using a slightly longer test just to make sure something gets printed each time.</p>
+<p>Every value can be evaluated as True or False. The general rule is that any non-zero or non-empty value will evaluate to True. If you are ever unsure, you can open a Python terminal and write two lines to find out if the value you are considering is True or False.</p>
+</div>
+</div>
+</div><div class="fragment">
+    
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Take a look at the following examples, keep them in mind, and test any value you are curious about.</p>
 </div>
 </div>
 </div>
+    </div></section><section>
+    
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>I am using a slightly longer test just to make sure something gets printed each time.</p>
+</div>
+</div>
+</div><div class="fragment">
+    
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">
@@ -3361,8 +3656,7 @@ In&nbsp;[60]:
 </div>
 <div class="inner_cell">
     <div class="input_area">
-<div class="highlight"><pre><span class="c">###highlight=[2]</span>
-<span class="k">if</span> <span class="mi">0</span><span class="p">:</span>
+<div class="highlight"><pre><span class="k">if</span> <span class="mi">0</span><span class="p">:</span>
     <span class="k">print</span><span class="p">(</span><span class="s">&quot;This evaluates to True.&quot;</span><span class="p">)</span>
 <span class="k">else</span><span class="p">:</span>
     <span class="k">print</span><span class="p">(</span><span class="s">&quot;This evaluates to False.&quot;</span><span class="p">)</span>
@@ -3389,6 +3683,8 @@ This evaluates to False.
 </div>
 
 </div>
+    </div><div class="fragment">
+    
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">
@@ -3396,8 +3692,7 @@ In&nbsp;[61]:
 </div>
 <div class="inner_cell">
     <div class="input_area">
-<div class="highlight"><pre><span class="c">###highlight=[2]</span>
-<span class="k">if</span> <span class="mi">1</span><span class="p">:</span>
+<div class="highlight"><pre><span class="k">if</span> <span class="mi">1</span><span class="p">:</span>
     <span class="k">print</span><span class="p">(</span><span class="s">&quot;This evaluates to True.&quot;</span><span class="p">)</span>
 <span class="k">else</span><span class="p">:</span>
     <span class="k">print</span><span class="p">(</span><span class="s">&quot;This evaluates to False.&quot;</span><span class="p">)</span>
@@ -3424,6 +3719,8 @@ This evaluates to True.
 </div>
 
 </div>
+    </div></section><section>
+    
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">
@@ -3431,8 +3728,7 @@ In&nbsp;[62]:
 </div>
 <div class="inner_cell">
     <div class="input_area">
-<div class="highlight"><pre><span class="c">###highlight=[2,3]</span>
-<span class="c"># Arbitrary non-zero numbers evaluate to True.</span>
+<div class="highlight"><pre><span class="c"># Arbitrary non-zero numbers evaluate to True.</span>
 <span class="k">if</span> <span class="mi">1253756</span><span class="p">:</span>
     <span class="k">print</span><span class="p">(</span><span class="s">&quot;This evaluates to True.&quot;</span><span class="p">)</span>
 <span class="k">else</span><span class="p">:</span>
@@ -3459,7 +3755,8 @@ This evaluates to True.
 </div>
 </div>
 
-</div>
+</div><div class="fragment">
+    
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">
@@ -3467,8 +3764,7 @@ In&nbsp;[63]:
 </div>
 <div class="inner_cell">
     <div class="input_area">
-<div class="highlight"><pre><span class="c">###highlight=[2,3]</span>
-<span class="c"># Negative numbers are not zero, so they evaluate to True.</span>
+<div class="highlight"><pre><span class="c"># Negative numbers are not zero, so they evaluate to True.</span>
 <span class="k">if</span> <span class="o">-</span><span class="mi">1</span><span class="p">:</span>
     <span class="k">print</span><span class="p">(</span><span class="s">&quot;This evaluates to True.&quot;</span><span class="p">)</span>
 <span class="k">else</span><span class="p">:</span>
@@ -3496,6 +3792,8 @@ This evaluates to True.
 </div>
 
 </div>
+    </div></section><section>
+    
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">
@@ -3503,8 +3801,7 @@ In&nbsp;[64]:
 </div>
 <div class="inner_cell">
     <div class="input_area">
-<div class="highlight"><pre><span class="c">###highlight=[2,3]</span>
-<span class="c"># An empty string evaluates to False.</span>
+<div class="highlight"><pre><span class="c"># An empty string evaluates to False.</span>
 <span class="k">if</span> <span class="s">&#39;&#39;</span><span class="p">:</span>
     <span class="k">print</span><span class="p">(</span><span class="s">&quot;This evaluates to True.&quot;</span><span class="p">)</span>
 <span class="k">else</span><span class="p">:</span>
@@ -3531,7 +3828,8 @@ This evaluates to False.
 </div>
 </div>
 
-</div>
+</div><div class="fragment">
+    
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">
@@ -3539,8 +3837,7 @@ In&nbsp;[66]:
 </div>
 <div class="inner_cell">
     <div class="input_area">
-<div class="highlight"><pre><span class="c">###highlight=[2,3]</span>
-<span class="c"># Any other string, including a space, evaluates to True.</span>
+<div class="highlight"><pre><span class="c"># Any other string, including a space, evaluates to True.</span>
 <span class="k">if</span> <span class="s">&#39; &#39;</span><span class="p">:</span>
     <span class="k">print</span><span class="p">(</span><span class="s">&quot;This evaluates to True.&quot;</span><span class="p">)</span>
 <span class="k">else</span><span class="p">:</span>
@@ -3568,6 +3865,8 @@ This evaluates to True.
 </div>
 
 </div>
+    </div></section><section>
+    
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">
@@ -3575,8 +3874,7 @@ In&nbsp;[67]:
 </div>
 <div class="inner_cell">
     <div class="input_area">
-<div class="highlight"><pre><span class="c">###highlight=[2,3]</span>
-<span class="c"># Any other string, including a space, evaluates to True.</span>
+<div class="highlight"><pre><span class="c"># Any other string, including a space, evaluates to True.</span>
 <span class="k">if</span> <span class="s">&#39;hello&#39;</span><span class="p">:</span>
     <span class="k">print</span><span class="p">(</span><span class="s">&quot;This evaluates to True.&quot;</span><span class="p">)</span>
 <span class="k">else</span><span class="p">:</span>
@@ -3603,7 +3901,8 @@ This evaluates to True.
 </div>
 </div>
 
-</div>
+</div><div class="fragment">
+    
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">
@@ -3611,8 +3910,7 @@ In&nbsp;[68]:
 </div>
 <div class="inner_cell">
     <div class="input_area">
-<div class="highlight"><pre><span class="c">###highlight=[2,3]</span>
-<span class="c"># None is a special object in Python. It evaluates to False.</span>
+<div class="highlight"><pre><span class="c"># None is a special object in Python. It evaluates to False.</span>
 <span class="k">if</span> <span class="bp">None</span><span class="p">:</span>
     <span class="k">print</span><span class="p">(</span><span class="s">&quot;This evaluates to True.&quot;</span><span class="p">)</span>
 <span class="k">else</span><span class="p">:</span>
@@ -3640,15 +3938,19 @@ This evaluates to False.
 </div>
 
 </div>
+    </div><div style=display:none>
+    
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><a href="#">top</a></p>
+<p><a href="#top">top</a></p>
 </div>
 </div>
 </div>
+    </div><div style=display:none>
+    
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
 </div>
@@ -3668,15 +3970,38 @@ This evaluates to False.
 </div>
 </div>
 </div>
+    </div><div style=display:none>
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">
+In&nbsp;[]:
+</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class="highlight"><pre><span class="c"># Overall Challenge: Alien Points</span>
+
+<span class="c"># Put your code here</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+    </div><div style=display:none>
+    
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><a href="#">top</a></p>
+<p><a href="#top">top</a></p>
 </div>
 </div>
 </div>
+    </div><div style=display:none>
+    
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
 </div>
@@ -3693,6 +4018,21 @@ This evaluates to False.
 </div>
 </div>
 </div>
+    </div><div style=display:none>
+    
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><a href="04_introducing_functions.ipynb">Previous: Introducing Functions</a> | 
+<a href="Index.ipynb">Home</a> |
+<a href="06_while_input.ipynb">Next: While Loops and Input</a></p>
+</div>
+</div>
+</div>
+    </div></section>
+    </section>
 </div>
 </div>
 
