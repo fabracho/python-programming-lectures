@@ -23,6 +23,20 @@ In more details, the goals of this project are:
 - Provide teachers an easy-to-use material about programming in Python to be used in their lectures
   (please see the Section [Teaching Material](#slides) for further details).
 
+## Running Notebooks ##
+
+All you need to do to play notebooks is to move to the `notebooks folder`: 
+    
+    cd notebooks
+    
+and then, start the iPython notebook:
+
+    ipython notebook
+    
+
+**That's it!** :)
+
+
 ## Programming Environment
 
 These notebooks are written primarily in Python 3. 
