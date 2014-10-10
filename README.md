@@ -25,7 +25,7 @@ In more details, the goals of this project are:
 
 ## Running Notebooks ##
 
-All you need to do to play notebooks is to move to the `notebooks folder`: 
+All you need to do to play notebooks is to move to the `notebooks` folder: 
     
     cd notebooks
     
