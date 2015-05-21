@@ -9,7 +9,7 @@
 <meta name="apple-mobile-web-app-capable" content="yes" />
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
 
-<title>08_more_functions slides</title>
+<title>Untitled0 slides</title>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
@@ -214,1582 +214,18 @@ div.output_prompt {
 <body>
 <div class="reveal">
 <div class="slides">
-<section>
-    <section>
-    
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="More-Functions">More Functions<a class="anchor-link" href="#More-Functions">&#182;</a></h1>
-</div>
-</div>
-</div><div class="fragment" data-fragment-index="1">
-    
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>Earlier we learned the most bare-boned versions of functions. In this section we will learn more general concepts about functions, such as how to use functions to return values, and how to pass different kinds of data structures between functions.</p>
 
-</div>
-</div>
-</div>
-    </div><div style=display:none>
-    
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h4 id="Reference:-Original-Notebook-by-@ehmatthes">Reference: <a href="http://nbviewer.ipython.org/urls/raw.github.com/ehmatthes/intro_programming/master/notebooks/more_functions.ipynb">Original Notebook</a> by <a href="https://twitter.com/ehmatthes">@ehmatthes</a><a class="anchor-link" href="#Reference:-Original-Notebook-by-@ehmatthes">&#182;</a></h4>
-</div>
-</div>
-</div>
-    </div><div style=display:none>
-    
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Contents"><a name="top" />Contents<a class="anchor-link" href="#Contents">&#182;</a></h1><ul>
-<li><a href="#default_values">Default argument values</a><ul>
-<li><a href="#exercises_default_values">Exercises</a></li>
-</ul>
-</li>
-<li><a href="#positional_arguments">Positional arguments</a><ul>
-<li><a href="#exercises_positional_arguments">Exercises</a></li>
-</ul>
-</li>
-<li><a href="#keyword_arguments">Keyword arguments</a><ul>
-<li><a href="#positional_and_keyword">Mixing positional and keyword arguments</a></li>
-<li><a href="#exercises_keyword_arguments">Exercises</a></li>
-</ul>
-</li>
-<li><a href="#arbitrary_arguments">Accepting an arbitrary number of arguments</a><ul>
-<li><a href="#arbitrary_sequence">Accepting a sequence of arbitrary length</a></li>
-<li><a href="#arbitrary_keyword_arguments">Accepting an arbitrary number of keyword arguments</a></li>
-</ul>
-</li>
-</ul>
-
-</div>
-</div>
-</div>
-    </div></section>
-    </section><section>
-    <section>
-    
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Default-argument-values"><a name="default_values" />Default argument values<a class="anchor-link" href="#Default-argument-values">&#182;</a></h1><p>When we first introduced functions, we started with this example:</p>
-
-</div>
-</div>
-</div><div class="fragment" data-fragment-index="5">
-    
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[1]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span class="k">def</span> <span class="nf">thank_you</span><span class="p">(</span><span class="n">name</span><span class="p">):</span>
-    <span class="c"># This function prints a two-line personalized thank you message.</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s">&quot;</span><span class="se">\n</span><span class="s">You are doing good work, %s!&quot;</span> <span class="o">%</span> <span class="n">name</span><span class="p">)</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s">&quot;Thank you very much for your efforts on this project.&quot;</span><span class="p">)</span>
-    
-<span class="n">thank_you</span><span class="p">(</span><span class="s">&#39;Adriana&#39;</span><span class="p">)</span>
-<span class="n">thank_you</span><span class="p">(</span><span class="s">&#39;Billy&#39;</span><span class="p">)</span>
-<span class="n">thank_you</span><span class="p">(</span><span class="s">&#39;Caroline&#39;</span><span class="p">)</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area"><div class="prompt"></div>
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>
-You are doing good work, Adriana!
-Thank you very much for your efforts on this project.
-
-You are doing good work, Billy!
-Thank you very much for your efforts on this project.
-
-You are doing good work, Caroline!
-Thank you very much for your efforts on this project.
-</pre>
-</div>
-</div>
-
-</div>
-</div>
-
-</div>
-    </div></section><section>
-    
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>This function works fine, but it fails if you don't pass in a value:</p>
-
-</div>
-</div>
-</div><div class="fragment" data-fragment-index="7">
-    
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[2]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span class="k">def</span> <span class="nf">thank_you</span><span class="p">(</span><span class="n">name</span><span class="p">):</span>
-    <span class="c"># This function prints a two-line personalized thank you message.</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s">&quot;</span><span class="se">\n</span><span class="s">You are doing good work, %s!&quot;</span> <span class="o">%</span> <span class="n">name</span><span class="p">)</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s">&quot;Thank you very much for your efforts on this project.&quot;</span><span class="p">)</span>
-    
-<span class="n">thank_you</span><span class="p">(</span><span class="s">&#39;Adriana&#39;</span><span class="p">)</span>
-<span class="n">thank_you</span><span class="p">(</span><span class="s">&#39;Billy&#39;</span><span class="p">)</span>
-<span class="n">thank_you</span><span class="p">(</span><span class="s">&#39;Caroline&#39;</span><span class="p">)</span>
-<span class="n">thank_you</span><span class="p">()</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area"><div class="prompt"></div>
-<div class="output_subarea output_text output_error">
-<pre>
-<span class="ansired">---------------------------------------------------------------------------</span>
-<span class="ansired">TypeError</span>                                 Traceback (most recent call last)
-<span class="ansigreen">&lt;ipython-input-2-a964f1e96d9b&gt;</span> in <span class="ansicyan">&lt;module&gt;</span><span class="ansiblue">()</span>
-<span class="ansigreen">      7</span> thank_you<span class="ansiblue">(</span><span class="ansiblue">&apos;Billy&apos;</span><span class="ansiblue">)</span><span class="ansiblue"></span>
-<span class="ansigreen">      8</span> thank_you<span class="ansiblue">(</span><span class="ansiblue">&apos;Caroline&apos;</span><span class="ansiblue">)</span><span class="ansiblue"></span>
-<span class="ansigreen">----&gt; 9</span><span class="ansired"> </span>thank_you<span class="ansiblue">(</span><span class="ansiblue">)</span><span class="ansiblue"></span>
-
-<span class="ansired">TypeError</span>: thank_you() takes exactly 1 argument (0 given)</pre>
-</div>
-</div>
-
-<div class="output_area"><div class="prompt"></div>
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>
-You are doing good work, Adriana!
-Thank you very much for your efforts on this project.
-
-You are doing good work, Billy!
-Thank you very much for your efforts on this project.
-
-You are doing good work, Caroline!
-Thank you very much for your efforts on this project.
-</pre>
-</div>
-</div>
-
-</div>
-</div>
-
-</div>
-    </div></section><section>
-    
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>That makes sense; the function needs to have a name in order to do its work, so without a name it is stuck.</p>
-<p>If you want your function to do something by default, even if no information is passed to it, you can do so by giving your arguments default values. You do this by specifying the default values when you define the function:</p>
-
-</div>
-</div>
-</div><div class="fragment" data-fragment-index="9">
-    
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[5]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span class="k">def</span> <span class="nf">thank_you</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s">&#39;everyone&#39;</span><span class="p">):</span>
-    <span class="c"># This function prints a two-line personalized thank you message.</span>
-    <span class="c">#  If no name is passed in, it prints a general thank you message</span>
-    <span class="c">#  to everyone.</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s">&quot;</span><span class="se">\n</span><span class="s">You are doing good work, %s!&quot;</span> <span class="o">%</span> <span class="n">name</span><span class="p">)</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s">&quot;Thank you very much for your efforts on this project.&quot;</span><span class="p">)</span>
-    
-<span class="n">thank_you</span><span class="p">(</span><span class="s">&#39;Adriana&#39;</span><span class="p">)</span>
-<span class="n">thank_you</span><span class="p">(</span><span class="s">&#39;Billy&#39;</span><span class="p">)</span>
-<span class="n">thank_you</span><span class="p">(</span><span class="s">&#39;Caroline&#39;</span><span class="p">)</span>
-<span class="n">thank_you</span><span class="p">()</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area"><div class="prompt"></div>
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>
-You are doing good work, Adriana!
-Thank you very much for your efforts on this project.
-
-You are doing good work, Billy!
-Thank you very much for your efforts on this project.
-
-You are doing good work, Caroline!
-Thank you very much for your efforts on this project.
-
-You are doing good work, everyone!
-Thank you very much for your efforts on this project.
-</pre>
-</div>
-</div>
-
-</div>
-</div>
-
-</div>
-    </div><div class="fragment" data-fragment-index="10">
-    
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>This is particularly useful when you have a number of arguments in your function, and some of those arguments almost always have the same value. This allows people who use the function to only specify the values that are unique to their use of the function.</p>
-
-</div>
-</div>
-</div>
-    </div><div style=display:none>
-    
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p><a href="#top">top</a></p>
-
-</div>
-</div>
-</div>
-    </div><div class="fragment" data-fragment-index="10">
-        
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Exercises"><a name="exercises_default_values" />Exercises<a class="anchor-link" href="#Exercises">&#182;</a></h2><h4 id="Games">Games<a class="anchor-link" href="#Games">&#182;</a></h4><ul>
-<li>Write a function that accepts the name of a game and prints a statement such as, "I like playing chess!"</li>
-<li>Give the argument a default value, such as <code>chess</code>.</li>
-<li>Call your function at least three times. Make sure at least one of the calls includes an argument, and at least one call includes no arguments.</li>
-</ul>
-<h4 id="Favorite-Movie">Favorite Movie<a class="anchor-link" href="#Favorite-Movie">&#182;</a></h4><ul>
-<li>Write a function that accepts the name of a movie, and prints a statement such as, "My favorite movie is The Princess Bride."</li>
-<li>Give the argument a default value, such as <code>The Princess Bride</code>.</li>
-<li>Call your function at least three times. Make sure at least one of the calls includes an argument, and at least one call includes no arguments.</li>
-</ul>
-
-</div>
-</div>
-</div>
-        </div><div style=display:none>
-    
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span class="c"># Ex 8.1 : Games</span>
-
-<span class="c"># put your code here</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div>
-    </div><div style=display:none>
-    
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span class="c"># Ex 8.2 : Favorite Movie</span>
-
-<span class="c"># put your code here</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div>
-    </div><div style=display:none>
-    
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p><a href="#top">top</a></p>
-
-</div>
-</div>
-</div>
-    </div></section>
-    </section><section>
-    <section>
-    
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Positional-Arguments"><a name="positional_arguments" />Positional Arguments<a class="anchor-link" href="#Positional-Arguments">&#182;</a></h1>
-</div>
-</div>
-</div><div class="fragment" data-fragment-index="17">
-    
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>Much of what you will have to learn about using functions involves how to pass values from your calling statement to the function itself. The example we just looked at is pretty simple, in that the function only needed one argument in order to do its work. Let's take a look at a function that requires two arguments to do its work.</p>
-<p>Let's make a simple function that takes in three arguments. Let's make a function that takes in a person's first and last name, and then prints out everything it knows about the person.</p>
-
-</div>
-</div>
-</div>
-    </div></section><section>
-    
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>Here is a simple implementation of this function:</p>
-
-</div>
-</div>
-</div><div class="fragment" data-fragment-index="19">
-    
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[22]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span class="k">def</span> <span class="nf">describe_person</span><span class="p">(</span><span class="n">first_name</span><span class="p">,</span> <span class="n">last_name</span><span class="p">,</span> <span class="n">age</span><span class="p">):</span>
-    <span class="c"># This function takes in a person&#39;s first and last name,</span>
-    <span class="c">#  and their age.</span>
-    <span class="c"># It then prints this information out in a simple format.</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s">&quot;First name: %s&quot;</span> <span class="o">%</span> <span class="n">first_name</span><span class="o">.</span><span class="n">title</span><span class="p">())</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s">&quot;Last name: %s&quot;</span> <span class="o">%</span> <span class="n">last_name</span><span class="o">.</span><span class="n">title</span><span class="p">())</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s">&quot;Age: %d</span><span class="se">\n</span><span class="s">&quot;</span> <span class="o">%</span> <span class="n">age</span><span class="p">)</span>
-
-<span class="n">describe_person</span><span class="p">(</span><span class="s">&#39;brian&#39;</span><span class="p">,</span> <span class="s">&#39;kernighan&#39;</span><span class="p">,</span> <span class="mi">71</span><span class="p">)</span>
-<span class="n">describe_person</span><span class="p">(</span><span class="s">&#39;ken&#39;</span><span class="p">,</span> <span class="s">&#39;thompson&#39;</span><span class="p">,</span> <span class="mi">70</span><span class="p">)</span>
-<span class="n">describe_person</span><span class="p">(</span><span class="s">&#39;adele&#39;</span><span class="p">,</span> <span class="s">&#39;goldberg&#39;</span><span class="p">,</span> <span class="mi">68</span><span class="p">)</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area"><div class="prompt"></div>
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>First name: Brian
-Last name: Kernighan
-Age: 71
-
-First name: Ken
-Last name: Thompson
-Age: 70
-
-First name: Adele
-Last name: Goldberg
-Age: 68
-
-</pre>
-</div>
-</div>
-
-</div>
-</div>
-
-</div>
-    </div></section><section>
-    
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>The arguments in this function are <code>first_name</code>, <code>last_name</code>, and <code>age</code>. These are called <em>positional arguments</em> because Python knows which value to assign to each by the order in which you give the function values. In the calling line</p>
-
-<pre><code>describe_person('brian', 'kernighan', 71)
-
-</code></pre>
-<p>we send the values <em>brian</em>, <em>kernighan</em>, and <em>71</em> to the function. Python matches the first value <em>brian</em> with the first argument <code>first_name</code>. It matches the second value <em>kernighan</em> with the second argument <code>last_name</code>. Finally it matches the third value <em>71</em> with the third argument <code>age</code>.</p>
-<p>This is pretty straightforward, but it means we have to make sure to get the arguments in the right order.</p>
-
-</div>
-</div>
-</div></section><section>
-    
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>If we mess up the order, we get nonsense results or an error:</p>
-
-</div>
-</div>
-</div><div class="fragment" data-fragment-index="22">
-    
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[23]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span class="k">def</span> <span class="nf">describe_person</span><span class="p">(</span><span class="n">first_name</span><span class="p">,</span> <span class="n">last_name</span><span class="p">,</span> <span class="n">age</span><span class="p">):</span>
-    <span class="c"># This function takes in a person&#39;s first and last name,</span>
-    <span class="c">#  and their age.</span>
-    <span class="c"># It then prints this information out in a simple format.</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s">&quot;First name: %s&quot;</span> <span class="o">%</span> <span class="n">first_name</span><span class="o">.</span><span class="n">title</span><span class="p">())</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s">&quot;Last name: %s&quot;</span> <span class="o">%</span> <span class="n">last_name</span><span class="o">.</span><span class="n">title</span><span class="p">())</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s">&quot;Age: %d</span><span class="se">\n</span><span class="s">&quot;</span> <span class="o">%</span> <span class="n">age</span><span class="p">)</span>
-
-<span class="n">describe_person</span><span class="p">(</span><span class="mi">71</span><span class="p">,</span> <span class="s">&#39;brian&#39;</span><span class="p">,</span> <span class="s">&#39;kernighan&#39;</span><span class="p">)</span>
-<span class="n">describe_person</span><span class="p">(</span><span class="mi">70</span><span class="p">,</span> <span class="s">&#39;ken&#39;</span><span class="p">,</span> <span class="s">&#39;thompson&#39;</span><span class="p">)</span>
-<span class="n">describe_person</span><span class="p">(</span><span class="mi">68</span><span class="p">,</span> <span class="s">&#39;adele&#39;</span><span class="p">,</span> <span class="s">&#39;goldberg&#39;</span><span class="p">)</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area"><div class="prompt"></div>
-<div class="output_subarea output_text output_error">
-<pre>
-<span class="ansired">---------------------------------------------------------------------------</span>
-<span class="ansired">AttributeError</span>                            Traceback (most recent call last)
-<span class="ansigreen">&lt;ipython-input-23-59fb6d0341c1&gt;</span> in <span class="ansicyan">&lt;module&gt;</span><span class="ansiblue">()</span>
-<span class="ansigreen">      7</span>     <span class="ansigreen">print</span><span class="ansiblue">(</span><span class="ansiblue">&quot;Age: %d\n&quot;</span> <span class="ansiblue">%</span> age<span class="ansiblue">)</span><span class="ansiblue"></span>
-<span class="ansigreen">      8</span> <span class="ansiblue"></span>
-<span class="ansigreen">----&gt; 9</span><span class="ansired"> </span>describe_person<span class="ansiblue">(</span><span class="ansicyan">71</span><span class="ansiblue">,</span> <span class="ansiblue">&apos;brian&apos;</span><span class="ansiblue">,</span> <span class="ansiblue">&apos;kernighan&apos;</span><span class="ansiblue">)</span><span class="ansiblue"></span>
-<span class="ansigreen">     10</span> describe_person<span class="ansiblue">(</span><span class="ansicyan">70</span><span class="ansiblue">,</span> <span class="ansiblue">&apos;ken&apos;</span><span class="ansiblue">,</span> <span class="ansiblue">&apos;thompson&apos;</span><span class="ansiblue">)</span><span class="ansiblue"></span>
-<span class="ansigreen">     11</span> describe_person<span class="ansiblue">(</span><span class="ansicyan">68</span><span class="ansiblue">,</span> <span class="ansiblue">&apos;adele&apos;</span><span class="ansiblue">,</span> <span class="ansiblue">&apos;goldberg&apos;</span><span class="ansiblue">)</span><span class="ansiblue"></span>
-
-<span class="ansigreen">&lt;ipython-input-23-59fb6d0341c1&gt;</span> in <span class="ansicyan">describe_person</span><span class="ansiblue">(first_name, last_name, age)</span>
-<span class="ansigreen">      3</span>     <span class="ansired">#  and their age.</span><span class="ansiblue"></span><span class="ansiblue"></span>
-<span class="ansigreen">      4</span>     <span class="ansired"># It then prints this information out in a simple format.</span><span class="ansiblue"></span><span class="ansiblue"></span>
-<span class="ansigreen">----&gt; 5</span><span class="ansired">     </span><span class="ansigreen">print</span><span class="ansiblue">(</span><span class="ansiblue">&quot;First name: %s&quot;</span> <span class="ansiblue">%</span> first_name<span class="ansiblue">.</span>title<span class="ansiblue">(</span><span class="ansiblue">)</span><span class="ansiblue">)</span><span class="ansiblue"></span>
-<span class="ansigreen">      6</span>     <span class="ansigreen">print</span><span class="ansiblue">(</span><span class="ansiblue">&quot;Last name: %s&quot;</span> <span class="ansiblue">%</span> last_name<span class="ansiblue">.</span>title<span class="ansiblue">(</span><span class="ansiblue">)</span><span class="ansiblue">)</span><span class="ansiblue"></span>
-<span class="ansigreen">      7</span>     <span class="ansigreen">print</span><span class="ansiblue">(</span><span class="ansiblue">&quot;Age: %d\n&quot;</span> <span class="ansiblue">%</span> age<span class="ansiblue">)</span><span class="ansiblue"></span>
-
-<span class="ansired">AttributeError</span>: &apos;int&apos; object has no attribute &apos;title&apos;</pre>
-</div>
-</div>
-
-</div>
-</div>
-
-</div>
-    </div><div class="fragment" data-fragment-index="23">
-    
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>This fails because Python tries to match the value 71 with the argument <code>first_name</code>, the value <em>brian</em> with the argument <code>last_name</code>, and the value <em>kernighan</em> with the argument <code>age</code>. Then when it tries to print the value <code>first_name.title()</code>, it realizes it can't use the <code>title()</code> method on an integer.</p>
-
-</div>
-</div>
-</div>
-    </div><div style=display:none>
-    
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p><a href="#top">top</a></p>
-
-</div>
-</div>
-</div>
-    </div><div style=display:none>
-    
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Exercises"><a name="exercises_positional_arguments" />Exercises<a class="anchor-link" href="#Exercises">&#182;</a></h2><h4 id="Favorite-Colors">Favorite Colors<a class="anchor-link" href="#Favorite-Colors">&#182;</a></h4><ul>
-<li>Write a function that takes two arguments, a person's name and their favorite color. The function should print out a statement such as "Hillary's favorite color is blue."</li>
-<li>Call your function three times, with a different person and color each time.</li>
-</ul>
-<h4 id="Phones">Phones<a class="anchor-link" href="#Phones">&#182;</a></h4><ul>
-<li>Write a function that takes two arguments, a brand of phone and a model name. The function should print out a phrase such as "iPhone 6 Plus".</li>
-<li>Call your function three times, with a different combination of brand and model each time.</li>
-</ul>
-
-</div>
-</div>
-</div>
-    </div><div style=display:none>
-    
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[1]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span class="c"># Ex 8.3 : Favorite Colors</span>
-
-<span class="c"># put your code here</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div>
-    </div><div style=display:none>
-    
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span class="c"># Ex 8.4 : Phones</span>
-
-<span class="c"># put your code here</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div>
-    </div><div style=display:none>
-    
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p><a href="#top">top</a></p>
-
-</div>
-</div>
-</div>
-    </div></section><section>
-    
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Keyword-arguments"><a name="keyword_arguments" />Keyword arguments<a class="anchor-link" href="#Keyword-arguments">&#182;</a></h1><p>Python allows us to use a syntax called <em>keyword arguments</em>. In this case, we can give the arguments in any order when we call the function, as long as we use the name of the arguments in our calling statement. Here is how the previous code can be made to work using keyword arguments:</p>
-
-</div>
-</div>
-</div></section><section>
-    
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[24]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span class="k">def</span> <span class="nf">describe_person</span><span class="p">(</span><span class="n">first_name</span><span class="p">,</span> <span class="n">last_name</span><span class="p">,</span> <span class="n">age</span><span class="p">):</span>
-    <span class="c"># This function takes in a person&#39;s first and last name,</span>
-    <span class="c">#  and their age.</span>
-    <span class="c"># It then prints this information out in a simple format.</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s">&quot;First name: %s&quot;</span> <span class="o">%</span> <span class="n">first_name</span><span class="o">.</span><span class="n">title</span><span class="p">())</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s">&quot;Last name: %s&quot;</span> <span class="o">%</span> <span class="n">last_name</span><span class="o">.</span><span class="n">title</span><span class="p">())</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s">&quot;Age: %d</span><span class="se">\n</span><span class="s">&quot;</span> <span class="o">%</span> <span class="n">age</span><span class="p">)</span>
-
-<span class="n">describe_person</span><span class="p">(</span><span class="n">age</span><span class="o">=</span><span class="mi">71</span><span class="p">,</span> <span class="n">first_name</span><span class="o">=</span><span class="s">&#39;brian&#39;</span><span class="p">,</span> <span class="n">last_name</span><span class="o">=</span><span class="s">&#39;kernighan&#39;</span><span class="p">)</span>
-<span class="n">describe_person</span><span class="p">(</span><span class="n">age</span><span class="o">=</span><span class="mi">70</span><span class="p">,</span> <span class="n">first_name</span><span class="o">=</span><span class="s">&#39;ken&#39;</span><span class="p">,</span> <span class="n">last_name</span><span class="o">=</span><span class="s">&#39;thompson&#39;</span><span class="p">)</span>
-<span class="n">describe_person</span><span class="p">(</span><span class="n">age</span><span class="o">=</span><span class="mi">68</span><span class="p">,</span> <span class="n">first_name</span><span class="o">=</span><span class="s">&#39;adele&#39;</span><span class="p">,</span> <span class="n">last_name</span><span class="o">=</span><span class="s">&#39;goldberg&#39;</span><span class="p">)</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area"><div class="prompt"></div>
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>First name: Brian
-Last name: Kernighan
-Age: 71
-
-First name: Ken
-Last name: Thompson
-Age: 70
-
-First name: Adele
-Last name: Goldberg
-Age: 68
-
-</pre>
-</div>
-</div>
-
-</div>
-</div>
-
-</div><div class="fragment" data-fragment-index="31">
-    
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>This works, because Python does not have to match values to arguments by position. It matches the value 71 with the argument <code>age</code>, because the value 71 is clearly marked to go with that argument. This syntax is a little more typing, but it makes for very readable code.</p>
-
-</div>
-</div>
-</div>
-    </div></section><section>
-    
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Mixing-positional-and-keyword-arguments"><a name="positional_and_keyword" />Mixing positional and keyword arguments<a class="anchor-link" href="#Mixing-positional-and-keyword-arguments">&#182;</a></h2><p>It can make good sense sometimes to mix positional and keyword arguments. In our previous example, we can expect this function to always take in a first name and a last name. Before we start mixing positional and keyword arguments, let's add another piece of information to our description of a person. Let's also go back to using just positional arguments for a moment:</p>
-
-</div>
-</div>
-</div><div class="fragment" data-fragment-index="33">
-    
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[25]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span class="k">def</span> <span class="nf">describe_person</span><span class="p">(</span><span class="n">first_name</span><span class="p">,</span> <span class="n">last_name</span><span class="p">,</span> <span class="n">age</span><span class="p">,</span> <span class="n">favorite_language</span><span class="p">):</span>
-    <span class="c"># This function takes in a person&#39;s first and last name,</span>
-    <span class="c">#  their age, and their favorite language.</span>
-    <span class="c"># It then prints this information out in a simple format.</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s">&quot;First name: %s&quot;</span> <span class="o">%</span> <span class="n">first_name</span><span class="o">.</span><span class="n">title</span><span class="p">())</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s">&quot;Last name: %s&quot;</span> <span class="o">%</span> <span class="n">last_name</span><span class="o">.</span><span class="n">title</span><span class="p">())</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s">&quot;Age: %d&quot;</span> <span class="o">%</span> <span class="n">age</span><span class="p">)</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s">&quot;Favorite language: %s</span><span class="se">\n</span><span class="s">&quot;</span> <span class="o">%</span> <span class="n">favorite_language</span><span class="p">)</span>
-
-<span class="n">describe_person</span><span class="p">(</span><span class="s">&#39;brian&#39;</span><span class="p">,</span> <span class="s">&#39;kernighan&#39;</span><span class="p">,</span> <span class="mi">71</span><span class="p">,</span> <span class="s">&#39;C&#39;</span><span class="p">)</span>
-<span class="n">describe_person</span><span class="p">(</span><span class="s">&#39;ken&#39;</span><span class="p">,</span> <span class="s">&#39;thompson&#39;</span><span class="p">,</span> <span class="mi">70</span><span class="p">,</span> <span class="s">&#39;Go&#39;</span><span class="p">)</span>
-<span class="n">describe_person</span><span class="p">(</span><span class="s">&#39;adele&#39;</span><span class="p">,</span> <span class="s">&#39;goldberg&#39;</span><span class="p">,</span> <span class="mi">68</span><span class="p">,</span> <span class="s">&#39;Smalltalk&#39;</span><span class="p">)</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area"><div class="prompt"></div>
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>First name: Brian
-Last name: Kernighan
-Age: 71
-Favorite language: C
-
-First name: Ken
-Last name: Thompson
-Age: 70
-Favorite language: Go
-
-First name: Adele
-Last name: Goldberg
-Age: 68
-Favorite language: Smalltalk
-
-</pre>
-</div>
-</div>
-
-</div>
-</div>
-
-</div>
-    </div></section><section>
-    
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>We can expect anyone who uses this function to supply a first name and a last name, in that order. But now we are starting to include some information that might not apply to everyone. We can address this by keeping positional arguments for the first name and last name, but expect keyword arguments for everything else. We can show this works by adding a few more people, and having different information about each person:</p>
-
-</div>
-</div>
-</div></section><section>
-    
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[27]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span class="k">def</span> <span class="nf">describe_person</span><span class="p">(</span><span class="n">first_name</span><span class="p">,</span> <span class="n">last_name</span><span class="p">,</span> <span class="n">age</span><span class="o">=</span><span class="k">None</span><span class="p">,</span> <span class="n">favorite_language</span><span class="o">=</span><span class="k">None</span><span class="p">,</span> <span class="n">died</span><span class="o">=</span><span class="k">None</span><span class="p">):</span>
-    <span class="c"># This function takes in a person&#39;s first and last name,</span>
-    <span class="c">#  their age, and their favorite language.</span>
-    <span class="c"># It then prints this information out in a simple format.</span>
-    
-    <span class="c"># Required information:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s">&quot;First name: %s&quot;</span> <span class="o">%</span> <span class="n">first_name</span><span class="o">.</span><span class="n">title</span><span class="p">())</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s">&quot;Last name: %s&quot;</span> <span class="o">%</span> <span class="n">last_name</span><span class="o">.</span><span class="n">title</span><span class="p">())</span>
-    
-    <span class="c"># Optional information:</span>
-    <span class="k">if</span> <span class="n">age</span><span class="p">:</span>
-        <span class="nb">print</span><span class="p">(</span><span class="s">&quot;Age: %d&quot;</span> <span class="o">%</span> <span class="n">age</span><span class="p">)</span>
-    <span class="k">if</span> <span class="n">favorite_language</span><span class="p">:</span>
-        <span class="nb">print</span><span class="p">(</span><span class="s">&quot;Favorite language: %s&quot;</span> <span class="o">%</span> <span class="n">favorite_language</span><span class="p">)</span>
-    <span class="k">if</span> <span class="n">died</span><span class="p">:</span>
-        <span class="nb">print</span><span class="p">(</span><span class="s">&quot;Died: %d&quot;</span> <span class="o">%</span> <span class="n">died</span><span class="p">)</span>
-    
-    <span class="c"># Blank line at end.</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s">&quot;</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">)</span>
-
-<span class="n">describe_person</span><span class="p">(</span><span class="s">&#39;brian&#39;</span><span class="p">,</span> <span class="s">&#39;kernighan&#39;</span><span class="p">,</span> <span class="n">favorite_language</span><span class="o">=</span><span class="s">&#39;C&#39;</span><span class="p">)</span>
-<span class="n">describe_person</span><span class="p">(</span><span class="s">&#39;ken&#39;</span><span class="p">,</span> <span class="s">&#39;thompson&#39;</span><span class="p">,</span> <span class="n">age</span><span class="o">=</span><span class="mi">70</span><span class="p">)</span>
-<span class="n">describe_person</span><span class="p">(</span><span class="s">&#39;adele&#39;</span><span class="p">,</span> <span class="s">&#39;goldberg&#39;</span><span class="p">,</span> <span class="n">age</span><span class="o">=</span><span class="mi">68</span><span class="p">,</span> <span class="n">favorite_language</span><span class="o">=</span><span class="s">&#39;Smalltalk&#39;</span><span class="p">)</span>
-<span class="n">describe_person</span><span class="p">(</span><span class="s">&#39;dennis&#39;</span><span class="p">,</span> <span class="s">&#39;ritchie&#39;</span><span class="p">,</span> <span class="n">favorite_language</span><span class="o">=</span><span class="s">&#39;C&#39;</span><span class="p">,</span> <span class="n">died</span><span class="o">=</span><span class="mi">2011</span><span class="p">)</span>
-<span class="n">describe_person</span><span class="p">(</span><span class="s">&#39;guido&#39;</span><span class="p">,</span> <span class="s">&#39;van rossum&#39;</span><span class="p">,</span> <span class="n">favorite_language</span><span class="o">=</span><span class="s">&#39;Python&#39;</span><span class="p">)</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area"><div class="prompt"></div>
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>First name: Brian
-Last name: Kernighan
-Favorite language: C
-
-
-First name: Ken
-Last name: Thompson
-Age: 70
-
-
-First name: Adele
-Last name: Goldberg
-Age: 68
-Favorite language: Smalltalk
-
-
-First name: Dennis
-Last name: Ritchie
-Favorite language: C
-Died: 2011
-
-
-First name: Guido
-Last name: Van Rossum
-Favorite language: Python
-
-
-</pre>
-</div>
-</div>
-
-</div>
-</div>
-
-</div></section><section>
-    
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>Everyone needs a first and last name, but everthing else is optional. This code takes advantage of the Python keyword <code>None</code>, which acts as an empty value for a variable. This way, the user is free to supply any of the 'extra' values they care to. Any arguments that don't receive a value are not displayed. Python matches these extra values by name, rather than by position. This is a very common and useful way to define functions.</p>
-
-</div>
-</div>
-</div><div style=display:none>
-    
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p><a href="#top">top</a></p>
-
-</div>
-</div>
-</div>
-    </div><div class="fragment" data-fragment-index="33">
-        
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Exercises"><a name="exercises_keyword_arguments" />Exercises<a class="anchor-link" href="#Exercises">&#182;</a></h2><h4 id="Sports-Teams">Sports Teams<a class="anchor-link" href="#Sports-Teams">&#182;</a></h4><ul>
-<li>Write a function that takes in two arguments, the name of a city and the name of a sports team from that city.</li>
-<li>Call your function three times, using a mix of positional and keyword arguments.</li>
-</ul>
-<h4 id="World-Languages">World Languages<a class="anchor-link" href="#World-Languages">&#182;</a></h4><ul>
-<li>Write a function that takes in two arguments, the name of a country and a major language spoken there.</li>
-<li>Call your function three times, using a mix of positional and keyword arguments.</li>
-</ul>
-
-</div>
-</div>
-</div>
-        </div><div style=display:none>
-    
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span class="c"># Ex 8.5 : Sports Team</span>
-
-<span class="c"># put your code here</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div>
-    </div><div style=display:none>
-    
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span class="c"># Ex 8.6 : Word Languages</span>
-
-<span class="c"># put your code here</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div>
-    </div><div style=display:none>
-    
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p><a href="#top">top</a></p>
-
-</div>
-</div>
-</div>
-    </div></section>
-    </section><section>
-    <section>
-    
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Accepting-an-arbitrary-number-of-arguments"><a name="arbitrary_arguments" />Accepting an arbitrary number of arguments<a class="anchor-link" href="#Accepting-an-arbitrary-number-of-arguments">&#182;</a></h1><p>We have now seen that using keyword arguments can allow for much more flexible calling statements.</p>
-<ul>
-<li>This benefits you in your own programs, because you can write one function that can handle many different situations you might encounter.</li>
-<li>This benefits you if other programmers use your programs, because your functions can apply to a wide range of situations.</li>
-<li>This benefits you when you use other programmers' functions, because their functions can apply to many situations you will care about.</li>
-</ul>
-<p>There is another issue that we can address, though. Let's consider a function that takes two number in, and prints out the sum of the two numbers:</p>
-
-</div>
-</div>
-</div></section><section>
-    
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[39]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span class="k">def</span> <span class="nf">adder</span><span class="p">(</span><span class="n">num_1</span><span class="p">,</span> <span class="n">num_2</span><span class="p">):</span>
-    <span class="c"># This function adds two numbers together, and prints the sum.</span>
-    <span class="nb">sum</span> <span class="o">=</span> <span class="n">num_1</span> <span class="o">+</span> <span class="n">num_2</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s">&quot;The sum of your numbers is %d.&quot;</span> <span class="o">%</span> <span class="nb">sum</span><span class="p">)</span>
-    
-<span class="c"># Let&#39;s add some numbers.</span>
-<span class="n">adder</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
-<span class="n">adder</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
-<span class="n">adder</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">2</span><span class="p">)</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area"><div class="prompt"></div>
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>The sum of your numbers is 3.
-The sum of your numbers is 1.
-The sum of your numbers is -1.
-</pre>
-</div>
-</div>
-
-</div>
-</div>
-
-</div></section><section>
-    
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>This function appears to work well. But what if we pass it three numbers, which is a perfectly reasonable thing to do mathematically?</p>
-
-</div>
-</div>
-</div><div class="fragment" data-fragment-index="45">
-    
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[40]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span class="k">def</span> <span class="nf">adder</span><span class="p">(</span><span class="n">num_1</span><span class="p">,</span> <span class="n">num_2</span><span class="p">):</span>
-    <span class="c"># This function adds two numbers together, and prints the sum.</span>
-    <span class="nb">sum</span> <span class="o">=</span> <span class="n">num_1</span> <span class="o">+</span> <span class="n">num_2</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s">&quot;The sum of your numbers is %d.&quot;</span> <span class="o">%</span> <span class="nb">sum</span><span class="p">)</span>
-    
-<span class="c"># Let&#39;s add some numbers.</span>
-<span class="n">adder</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area"><div class="prompt"></div>
-<div class="output_subarea output_text output_error">
-<pre>
-<span class="ansired">---------------------------------------------------------------------------</span>
-<span class="ansired">TypeError</span>                                 Traceback (most recent call last)
-<span class="ansigreen">&lt;ipython-input-40-9939998d2a01&gt;</span> in <span class="ansicyan">&lt;module&gt;</span><span class="ansiblue">()</span>
-<span class="ansigreen">      5</span> <span class="ansiblue"></span>
-<span class="ansigreen">      6</span> <span class="ansired"># Let&apos;s add some numbers.</span><span class="ansiblue"></span><span class="ansiblue"></span>
-<span class="ansigreen">----&gt; 7</span><span class="ansired"> </span>adder<span class="ansiblue">(</span><span class="ansicyan">1</span><span class="ansiblue">,</span> <span class="ansicyan">2</span><span class="ansiblue">,</span> <span class="ansicyan">3</span><span class="ansiblue">)</span><span class="ansiblue"></span>
-
-<span class="ansired">TypeError</span>: adder() takes exactly 2 arguments (3 given)</pre>
-</div>
-</div>
-
-</div>
-</div>
-
-</div>
-    </div><div class="fragment" data-fragment-index="46">
-    
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>This function fails, because no matter what mix of positional and keyword arguments we use, the function is only written two accept two arguments. In fact, a function written in this way will only work with <em>exactly</em> two arguments.</p>
-
-</div>
-</div>
-</div>
-    </div></section><section>
-    
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Accepting-a-sequence-of-arbitrary-length"><a name="arbitrary_sequence" />Accepting a sequence of arbitrary length<a class="anchor-link" href="#Accepting-a-sequence-of-arbitrary-length">&#182;</a></h2><p>Python gives us a syntax for letting a function accept an arbitrary number of arguments. If we place an argument at the end of the list of arguments, with an asterisk in front of it, that argument will collect any remaining values from the calling statement into a tuple. Here is an example demonstrating how this works:</p>
-
-</div>
-</div>
-</div><div class="fragment" data-fragment-index="48">
-    
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[31]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span class="k">def</span> <span class="nf">example_function</span><span class="p">(</span><span class="n">arg_1</span><span class="p">,</span> <span class="n">arg_2</span><span class="p">,</span> <span class="o">*</span><span class="n">arg_3</span><span class="p">):</span>
-    <span class="c"># Let&#39;s look at the argument values.</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s">&#39;</span><span class="se">\n</span><span class="s">arg_1:&#39;</span><span class="p">,</span> <span class="n">arg_1</span><span class="p">)</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s">&#39;arg_2:&#39;</span><span class="p">,</span> <span class="n">arg_2</span><span class="p">)</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s">&#39;arg_3:&#39;</span><span class="p">,</span> <span class="n">arg_3</span><span class="p">)</span>
-    
-<span class="n">example_function</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
-<span class="n">example_function</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
-<span class="n">example_function</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
-<span class="n">example_function</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area"><div class="prompt"></div>
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>
-arg_1: 1
-arg_2: 2
-arg_3: ()
-
-arg_1: 1
-arg_2: 2
-arg_3: (3,)
-
-arg_1: 1
-arg_2: 2
-arg_3: (3, 4)
-
-arg_1: 1
-arg_2: 2
-arg_3: (3, 4, 5)
-</pre>
-</div>
-</div>
-
-</div>
-</div>
-
-</div>
-    </div></section><section>
-    
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>You can use a for loop to process these other arguments:</p>
-
-</div>
-</div>
-</div><div class="fragment" data-fragment-index="50">
-    
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[30]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span class="k">def</span> <span class="nf">example_function</span><span class="p">(</span><span class="n">arg_1</span><span class="p">,</span> <span class="n">arg_2</span><span class="p">,</span> <span class="o">*</span><span class="n">arg_3</span><span class="p">):</span>
-    <span class="c"># Let&#39;s look at the argument values.</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s">&#39;</span><span class="se">\n</span><span class="s">arg_1:&#39;</span><span class="p">,</span> <span class="n">arg_1</span><span class="p">)</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s">&#39;arg_2:&#39;</span><span class="p">,</span> <span class="n">arg_2</span><span class="p">)</span>
-    <span class="k">for</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">arg_3</span><span class="p">:</span>
-        <span class="nb">print</span><span class="p">(</span><span class="s">&#39;arg_3 value:&#39;</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span>
-
-<span class="n">example_function</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
-<span class="n">example_function</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
-<span class="n">example_function</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
-<span class="n">example_function</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area"><div class="prompt"></div>
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>
-arg_1: 1
-arg_2: 2
-
-arg_1: 1
-arg_2: 2
-arg_3 value: 3
-
-arg_1: 1
-arg_2: 2
-arg_3 value: 3
-arg_3 value: 4
-
-arg_1: 1
-arg_2: 2
-arg_3 value: 3
-arg_3 value: 4
-arg_3 value: 5
-</pre>
-</div>
-</div>
-
-</div>
-</div>
-
-</div>
-    </div></section><section>
-    
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>We can now rewrite the adder() function to accept two or more arguments, and print the sum of those numbers:</p>
-
-</div>
-</div>
-</div><div class="fragment" data-fragment-index="52">
-    
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[55]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span class="k">def</span> <span class="nf">adder</span><span class="p">(</span><span class="n">num_1</span><span class="p">,</span> <span class="n">num_2</span><span class="p">,</span> <span class="o">*</span><span class="n">nums</span><span class="p">):</span>
-    <span class="c"># This function adds the given numbers together,</span>
-    <span class="c">#  and prints the sum.</span>
-    
-    <span class="c"># Start by adding the first two numbers, which</span>
-    <span class="c">#  will always be present.</span>
-    <span class="nb">sum</span> <span class="o">=</span> <span class="n">num_1</span> <span class="o">+</span> <span class="n">num_2</span>
-    
-    <span class="c"># Then add any other numbers that were sent.</span>
-    <span class="k">for</span> <span class="n">num</span> <span class="ow">in</span> <span class="n">nums</span><span class="p">:</span>
-        <span class="nb">sum</span> <span class="o">=</span> <span class="nb">sum</span> <span class="o">+</span> <span class="n">num</span>
-        
-    <span class="c"># Print the results.</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s">&quot;The sum of your numbers is %d.&quot;</span> <span class="o">%</span> <span class="nb">sum</span><span class="p">)</span>
-    
-<span class="c"># Let&#39;s add some numbers.</span>
-<span class="n">adder</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area"><div class="prompt"></div>
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>The sum of your numbers is 6.
-</pre>
-</div>
-</div>
-
-</div>
-</div>
-
-</div>
-    </div></section><section>
-    
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>In this new version, Python does the following:</p>
-<ul>
-<li>stores the first value in the calling statement in the argument <code>num_1</code>;</li>
-<li>stores the second value in the calling statement in the argument <code>num_2</code>;</li>
-<li>stores all other values in the calling statement as a tuple in the argument <code>nums</code>.</li>
-</ul>
-
-</div>
-</div>
-</div></section><section>
-    
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>We can then "unpack" these values, using a for loop. We can demonstrate how flexible this function is by calling it a number of times, with a different number of arguments each time.</p>
-
-</div>
-</div>
-</div><div class="fragment" data-fragment-index="55">
-    
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[28]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span class="k">def</span> <span class="nf">adder</span><span class="p">(</span><span class="n">num_1</span><span class="p">,</span> <span class="n">num_2</span><span class="p">,</span> <span class="o">*</span><span class="n">nums</span><span class="p">):</span>
-    <span class="c"># This function adds the given numbers together,</span>
-    <span class="c">#  and prints the sum.</span>
-    
-    <span class="c"># Start by adding the first two numbers, which</span>
-    <span class="c">#  will always be present.</span>
-    <span class="nb">sum</span> <span class="o">=</span> <span class="n">num_1</span> <span class="o">+</span> <span class="n">num_2</span>
-    
-    <span class="c"># Then add any other numbers that were sent.</span>
-    <span class="k">for</span> <span class="n">num</span> <span class="ow">in</span> <span class="n">nums</span><span class="p">:</span>
-        <span class="nb">sum</span> <span class="o">=</span> <span class="nb">sum</span> <span class="o">+</span> <span class="n">num</span>
-        
-    <span class="c"># Print the results.</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s">&quot;The sum of your numbers is %d.&quot;</span> <span class="o">%</span> <span class="nb">sum</span><span class="p">)</span>
-
-    
-<span class="c"># Let&#39;s add some numbers.</span>
-<span class="n">adder</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
-<span class="n">adder</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
-<span class="n">adder</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
-<span class="n">adder</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area"><div class="prompt"></div>
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>The sum of your numbers is 3.
-The sum of your numbers is 6.
-The sum of your numbers is 10.
-The sum of your numbers is 15.
-</pre>
-</div>
-</div>
-
-</div>
-</div>
-
-</div>
-    </div><div style=display:none>
-    
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p><a href="#top">top</a></p>
-
-</div>
-</div>
-</div>
-    </div></section><section>
-    
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Accepting-an-arbitrary-number-of-keyword-arguments"><a name="arbitrary_keyword_arguments" />Accepting an arbitrary number of keyword arguments<a class="anchor-link" href="#Accepting-an-arbitrary-number-of-keyword-arguments">&#182;</a></h2><p>Python also provides a syntax for accepting an arbitrary number of keyword arguments. The syntax looks like this:</p>
-
-</div>
-</div>
-</div><div class="fragment" data-fragment-index="58">
-    
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[34]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span class="k">def</span> <span class="nf">example_function</span><span class="p">(</span><span class="n">arg_1</span><span class="p">,</span> <span class="n">arg_2</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
-    <span class="c"># Let&#39;s look at the argument values.</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s">&#39;</span><span class="se">\n</span><span class="s">arg_1:&#39;</span><span class="p">,</span> <span class="n">arg_1</span><span class="p">)</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s">&#39;arg_2:&#39;</span><span class="p">,</span> <span class="n">arg_2</span><span class="p">)</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s">&#39;arg_3:&#39;</span><span class="p">,</span> <span class="n">kwargs</span><span class="p">)</span>
-    
-<span class="n">example_function</span><span class="p">(</span><span class="s">&#39;a&#39;</span><span class="p">,</span> <span class="s">&#39;b&#39;</span><span class="p">)</span>
-<span class="n">example_function</span><span class="p">(</span><span class="s">&#39;a&#39;</span><span class="p">,</span> <span class="s">&#39;b&#39;</span><span class="p">,</span> <span class="n">value_3</span><span class="o">=</span><span class="s">&#39;c&#39;</span><span class="p">)</span>
-<span class="n">example_function</span><span class="p">(</span><span class="s">&#39;a&#39;</span><span class="p">,</span> <span class="s">&#39;b&#39;</span><span class="p">,</span> <span class="n">value_3</span><span class="o">=</span><span class="s">&#39;c&#39;</span><span class="p">,</span> <span class="n">value_4</span><span class="o">=</span><span class="s">&#39;d&#39;</span><span class="p">)</span>
-<span class="n">example_function</span><span class="p">(</span><span class="s">&#39;a&#39;</span><span class="p">,</span> <span class="s">&#39;b&#39;</span><span class="p">,</span> <span class="n">value_3</span><span class="o">=</span><span class="s">&#39;c&#39;</span><span class="p">,</span> <span class="n">value_4</span><span class="o">=</span><span class="s">&#39;d&#39;</span><span class="p">,</span> <span class="n">value_5</span><span class="o">=</span><span class="s">&#39;e&#39;</span><span class="p">)</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area"><div class="prompt"></div>
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>
-arg_1: a
-arg_2: b
-arg_3: {}
-
-arg_1: a
-arg_2: b
-arg_3: {&apos;value_3&apos;: &apos;c&apos;}
-
-arg_1: a
-arg_2: b
-arg_3: {&apos;value_4&apos;: &apos;d&apos;, &apos;value_3&apos;: &apos;c&apos;}
-
-arg_1: a
-arg_2: b
-arg_3: {&apos;value_5&apos;: &apos;e&apos;, &apos;value_4&apos;: &apos;d&apos;, &apos;value_3&apos;: &apos;c&apos;}
-</pre>
-</div>
-</div>
-
-</div>
-</div>
-
-</div>
-    </div></section><section>
-    
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>The third argument has two asterisks in front of it, which tells Python to collect all remaining key-value arguments in the calling statement. This argument is commonly named <em>kwargs</em>. We see in the output that these key-values are stored in a dictionary. We can loop through this dictionary to work with all of the values that are passed into the function:</p>
-
-</div>
-</div>
-</div><div class="fragment" data-fragment-index="60">
-    
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[36]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span class="k">def</span> <span class="nf">example_function</span><span class="p">(</span><span class="n">arg_1</span><span class="p">,</span> <span class="n">arg_2</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
-    <span class="c"># Let&#39;s look at the argument values.</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s">&#39;</span><span class="se">\n</span><span class="s">arg_1:&#39;</span><span class="p">,</span> <span class="n">arg_1</span><span class="p">)</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s">&#39;arg_2:&#39;</span><span class="p">,</span> <span class="n">arg_2</span><span class="p">)</span>
-    <span class="k">for</span> <span class="n">key</span><span class="p">,</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
-        <span class="nb">print</span><span class="p">(</span><span class="s">&#39;arg_3 value:&#39;</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span>
-    
-<span class="n">example_function</span><span class="p">(</span><span class="s">&#39;a&#39;</span><span class="p">,</span> <span class="s">&#39;b&#39;</span><span class="p">)</span>
-<span class="n">example_function</span><span class="p">(</span><span class="s">&#39;a&#39;</span><span class="p">,</span> <span class="s">&#39;b&#39;</span><span class="p">,</span> <span class="n">value_3</span><span class="o">=</span><span class="s">&#39;c&#39;</span><span class="p">)</span>
-<span class="n">example_function</span><span class="p">(</span><span class="s">&#39;a&#39;</span><span class="p">,</span> <span class="s">&#39;b&#39;</span><span class="p">,</span> <span class="n">value_3</span><span class="o">=</span><span class="s">&#39;c&#39;</span><span class="p">,</span> <span class="n">value_4</span><span class="o">=</span><span class="s">&#39;d&#39;</span><span class="p">)</span>
-<span class="n">example_function</span><span class="p">(</span><span class="s">&#39;a&#39;</span><span class="p">,</span> <span class="s">&#39;b&#39;</span><span class="p">,</span> <span class="n">value_3</span><span class="o">=</span><span class="s">&#39;c&#39;</span><span class="p">,</span> <span class="n">value_4</span><span class="o">=</span><span class="s">&#39;d&#39;</span><span class="p">,</span> <span class="n">value_5</span><span class="o">=</span><span class="s">&#39;e&#39;</span><span class="p">)</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area"><div class="prompt"></div>
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>
-arg_1: a
-arg_2: b
-
-arg_1: a
-arg_2: b
-arg_3 value: c
-
-arg_1: a
-arg_2: b
-arg_3 value: d
-arg_3 value: c
-
-arg_1: a
-arg_2: b
-arg_3 value: e
-arg_3 value: d
-arg_3 value: c
-</pre>
-</div>
-</div>
-
-</div>
-</div>
-
-</div>
-    </div></section><section>
-    
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>Earlier we created a function that let us describe a person, and we had three things we could describe about a person. We could include their age, their favorite language, and the date they passed away. But that was the only information we could include, because it was the only information that the function was prepared to handle:</p>
-
-</div>
-</div>
-</div><div class="fragment" data-fragment-index="62">
-    
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[1]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span class="k">def</span> <span class="nf">describe_person</span><span class="p">(</span><span class="n">first_name</span><span class="p">,</span> <span class="n">last_name</span><span class="p">,</span> <span class="n">age</span><span class="o">=</span><span class="k">None</span><span class="p">,</span> <span class="n">favorite_language</span><span class="o">=</span><span class="k">None</span><span class="p">,</span> <span class="n">died</span><span class="o">=</span><span class="k">None</span><span class="p">):</span>
-    <span class="c"># This function takes in a person&#39;s first and last name,</span>
-    <span class="c">#  their age, and their favorite language.</span>
-    <span class="c"># It then prints this information out in a simple format.</span>
-    
-    <span class="c"># Required information:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s">&quot;First name: %s&quot;</span> <span class="o">%</span> <span class="n">first_name</span><span class="o">.</span><span class="n">title</span><span class="p">())</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s">&quot;Last name: %s&quot;</span> <span class="o">%</span> <span class="n">last_name</span><span class="o">.</span><span class="n">title</span><span class="p">())</span>
-    
-    <span class="c"># Optional information:</span>
-    <span class="k">if</span> <span class="n">age</span><span class="p">:</span>
-        <span class="nb">print</span><span class="p">(</span><span class="s">&quot;Age: %d&quot;</span> <span class="o">%</span> <span class="n">age</span><span class="p">)</span>
-    <span class="k">if</span> <span class="n">favorite_language</span><span class="p">:</span>
-        <span class="nb">print</span><span class="p">(</span><span class="s">&quot;Favorite language: %s&quot;</span> <span class="o">%</span> <span class="n">favorite_language</span><span class="p">)</span>
-    <span class="k">if</span> <span class="n">died</span><span class="p">:</span>
-        <span class="nb">print</span><span class="p">(</span><span class="s">&quot;Died: %d&quot;</span> <span class="o">%</span> <span class="n">died</span><span class="p">)</span>
-    
-    <span class="c"># Blank line at end.</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s">&quot;</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">)</span>
-
-<span class="n">describe_person</span><span class="p">(</span><span class="s">&#39;brian&#39;</span><span class="p">,</span> <span class="s">&#39;kernighan&#39;</span><span class="p">,</span> <span class="n">favorite_language</span><span class="o">=</span><span class="s">&#39;C&#39;</span><span class="p">)</span>
-<span class="n">describe_person</span><span class="p">(</span><span class="s">&#39;ken&#39;</span><span class="p">,</span> <span class="s">&#39;thompson&#39;</span><span class="p">,</span> <span class="n">age</span><span class="o">=</span><span class="mi">70</span><span class="p">)</span>
-<span class="n">describe_person</span><span class="p">(</span><span class="s">&#39;adele&#39;</span><span class="p">,</span> <span class="s">&#39;goldberg&#39;</span><span class="p">,</span> <span class="n">age</span><span class="o">=</span><span class="mi">68</span><span class="p">,</span> <span class="n">favorite_language</span><span class="o">=</span><span class="s">&#39;Smalltalk&#39;</span><span class="p">)</span>
-<span class="n">describe_person</span><span class="p">(</span><span class="s">&#39;dennis&#39;</span><span class="p">,</span> <span class="s">&#39;ritchie&#39;</span><span class="p">,</span> <span class="n">favorite_language</span><span class="o">=</span><span class="s">&#39;C&#39;</span><span class="p">,</span> <span class="n">died</span><span class="o">=</span><span class="mi">2011</span><span class="p">)</span>
-<span class="n">describe_person</span><span class="p">(</span><span class="s">&#39;guido&#39;</span><span class="p">,</span> <span class="s">&#39;van rossum&#39;</span><span class="p">,</span> <span class="n">favorite_language</span><span class="o">=</span><span class="s">&#39;Python&#39;</span><span class="p">)</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area"><div class="prompt"></div>
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>First name: Brian
-Last name: Kernighan
-Favorite language: C
-
-
-First name: Ken
-Last name: Thompson
-Age: 70
-
-
-First name: Adele
-Last name: Goldberg
-Age: 68
-Favorite language: Smalltalk
-
-
-First name: Dennis
-Last name: Ritchie
-Favorite language: C
-Died: 2011
-
-
-First name: Guido
-Last name: Van Rossum
-Favorite language: Python
-
-
-</pre>
-</div>
-</div>
-
-</div>
-</div>
-
-</div>
-    </div></section><section>
-    
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>We can make this function much more flexible by accepting any number of keyword arguments. Here is what the function looks like, using the syntax for accepting as many keyword arguments as the caller wants to provide:</p>
-
-</div>
-</div>
-</div><div class="fragment" data-fragment-index="64">
-    
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">In&nbsp;[4]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span class="k">def</span> <span class="nf">describe_person</span><span class="p">(</span><span class="n">first_name</span><span class="p">,</span> <span class="n">last_name</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
-    <span class="c"># This function takes in a person&#39;s first and last name,</span>
-    <span class="c">#  and then an arbitrary number of keyword arguments.</span>
-    
-    <span class="c"># Required information:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s">&quot;First name: %s&quot;</span> <span class="o">%</span> <span class="n">first_name</span><span class="o">.</span><span class="n">title</span><span class="p">())</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s">&quot;Last name: %s&quot;</span> <span class="o">%</span> <span class="n">last_name</span><span class="o">.</span><span class="n">title</span><span class="p">())</span>
-    
-    <span class="c"># Optional information:</span>
-    <span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">kwargs</span><span class="p">:</span>
-        <span class="nb">print</span><span class="p">(</span><span class="s">&quot;%s: %s&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">key</span><span class="o">.</span><span class="n">title</span><span class="p">(),</span> <span class="n">kwargs</span><span class="p">[</span><span class="n">key</span><span class="p">]))</span>
-    
-    <span class="c"># Blank line at end.</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s">&quot;</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span class="n">d</span> <span class="o">=</span> <span class="p">{}</span>
 
-<span class="n">describe_person</span><span class="p">(</span><span class="s">&#39;brian&#39;</span><span class="p">,</span> <span class="s">&#39;kernighan&#39;</span><span class="p">,</span> <span class="n">favorite_language</span><span class="o">=</span><span class="s">&#39;C&#39;</span><span class="p">)</span>
-<span class="n">describe_person</span><span class="p">(</span><span class="s">&#39;ken&#39;</span><span class="p">,</span> <span class="s">&#39;thompson&#39;</span><span class="p">,</span> <span class="n">age</span><span class="o">=</span><span class="mi">70</span><span class="p">)</span>
-<span class="n">describe_person</span><span class="p">(</span><span class="s">&#39;adele&#39;</span><span class="p">,</span> <span class="s">&#39;goldberg&#39;</span><span class="p">,</span> <span class="n">age</span><span class="o">=</span><span class="mi">68</span><span class="p">,</span> <span class="n">favorite_language</span><span class="o">=</span><span class="s">&#39;Smalltalk&#39;</span><span class="p">)</span>
-<span class="n">describe_person</span><span class="p">(</span><span class="s">&#39;dennis&#39;</span><span class="p">,</span> <span class="s">&#39;ritchie&#39;</span><span class="p">,</span> <span class="n">favorite_language</span><span class="o">=</span><span class="s">&#39;C&#39;</span><span class="p">,</span> <span class="n">died</span><span class="o">=</span><span class="mi">2011</span><span class="p">)</span>
-<span class="n">describe_person</span><span class="p">(</span><span class="s">&#39;guido&#39;</span><span class="p">,</span> <span class="s">&#39;van rossum&#39;</span><span class="p">,</span> <span class="n">favorite_language</span><span class="o">=</span><span class="s">&#39;Python&#39;</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">):</span>
+    <span class="n">d</span><span class="p">[</span><span class="nb">str</span><span class="p">(</span><span class="n">i</span><span class="p">)]</span> <span class="o">=</span> <span class="n">i</span>
+    
+<span class="nb">print</span><span class="p">(</span><span class="n">d</span><span class="p">)</span>
 </pre></div>
 
 </div>
@@ -1802,33 +238,7 @@ Favorite language: Python
 
 <div class="output_area"><div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>First name: Brian
-Last name: Kernighan
-Favorite_Language: C
-
-
-First name: Ken
-Last name: Thompson
-Age: 70
-
-
-First name: Adele
-Last name: Goldberg
-Age: 68
-Favorite_Language: Smalltalk
-
-
-First name: Dennis
-Last name: Ritchie
-Favorite_Language: C
-Died: 2011
-
-
-First name: Guido
-Last name: Van Rossum
-Favorite_Language: Python
-
-
+<pre>{&apos;1&apos;: 1, &apos;0&apos;: 0, &apos;3&apos;: 3, &apos;4&apos;: 4, &apos;2&apos;: 2}
 </pre>
 </div>
 </div>
@@ -1837,44 +247,43 @@ Favorite_Language: Python
 </div>
 
 </div>
-    </div></section><section>
-    
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>This is pretty neat. We get the same output, and we don't have to include a bunch of if tests to see what kind of information was passed into the function. We always require a first name and a last name, but beyond that the caller is free to provide any keyword-value pair to describe a person. Let's show that any kind of information can be provided to this function. We also clean up the output by replacing any underscores in the keys with a space.</p>
-
-</div>
-</div>
-</div><div class="fragment" data-fragment-index="66">
-    
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[6]:</div>
+<div class="prompt input_prompt">In&nbsp;[5]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span class="k">def</span> <span class="nf">describe_person</span><span class="p">(</span><span class="n">first_name</span><span class="p">,</span> <span class="n">last_name</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
-    <span class="c"># This function takes in a person&#39;s first and last name,</span>
-    <span class="c">#  and then an arbitrary number of keyword arguments.</span>
-    
-    <span class="c"># Required information:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s">&quot;First name: %s&quot;</span> <span class="o">%</span> <span class="n">first_name</span><span class="o">.</span><span class="n">title</span><span class="p">())</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s">&quot;Last name: %s&quot;</span> <span class="o">%</span> <span class="n">last_name</span><span class="o">.</span><span class="n">title</span><span class="p">())</span>
-    
-    <span class="c"># Optional information:</span>
-    <span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">kwargs</span><span class="p">:</span>
-        <span class="nb">print</span><span class="p">(</span><span class="s">&quot;%s: %s&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">key</span><span class="o">.</span><span class="n">title</span><span class="p">()</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s">&#39;_&#39;</span><span class="p">,</span> <span class="s">&#39; &#39;</span><span class="p">),</span> <span class="n">kwargs</span><span class="p">[</span><span class="n">key</span><span class="p">]))</span>
-    
-    <span class="c"># Blank line at end.</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s">&quot;</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span class="nb">list</span><span class="p">(</span><span class="n">d</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span>
+</pre></div>
 
-<span class="n">describe_person</span><span class="p">(</span><span class="s">&#39;brian&#39;</span><span class="p">,</span> <span class="s">&#39;kernighan&#39;</span><span class="p">,</span> <span class="n">favorite_language</span><span class="o">=</span><span class="s">&#39;C&#39;</span><span class="p">,</span> <span class="n">famous_book</span><span class="o">=</span><span class="s">&#39;The C Programming Language&#39;</span><span class="p">)</span>
-<span class="n">describe_person</span><span class="p">(</span><span class="s">&#39;ken&#39;</span><span class="p">,</span> <span class="s">&#39;thompson&#39;</span><span class="p">,</span> <span class="n">age</span><span class="o">=</span><span class="mi">70</span><span class="p">,</span> <span class="n">alma_mater</span><span class="o">=</span><span class="s">&#39;UC Berkeley&#39;</span><span class="p">)</span>
-<span class="n">describe_person</span><span class="p">(</span><span class="s">&#39;adele&#39;</span><span class="p">,</span> <span class="s">&#39;goldberg&#39;</span><span class="p">,</span> <span class="n">age</span><span class="o">=</span><span class="mi">68</span><span class="p">,</span> <span class="n">favorite_language</span><span class="o">=</span><span class="s">&#39;Smalltalk&#39;</span><span class="p">)</span>
-<span class="n">describe_person</span><span class="p">(</span><span class="s">&#39;dennis&#39;</span><span class="p">,</span> <span class="s">&#39;ritchie&#39;</span><span class="p">,</span> <span class="n">favorite_language</span><span class="o">=</span><span class="s">&#39;C&#39;</span><span class="p">,</span> <span class="n">died</span><span class="o">=</span><span class="mi">2011</span><span class="p">,</span> <span class="n">famous_book</span><span class="o">=</span><span class="s">&#39;The C Programming Language&#39;</span><span class="p">)</span>
-<span class="n">describe_person</span><span class="p">(</span><span class="s">&#39;guido&#39;</span><span class="p">,</span> <span class="s">&#39;van rossum&#39;</span><span class="p">,</span> <span class="n">favorite_language</span><span class="o">=</span><span class="s">&#39;Python&#39;</span><span class="p">,</span> <span class="n">company</span><span class="o">=</span><span class="s">&#39;Dropbox&#39;</span><span class="p">)</span>
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt output_prompt">Out[5]:</div>
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>[&apos;1&apos;, &apos;0&apos;, &apos;3&apos;, &apos;4&apos;, &apos;2&apos;]</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[7]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span class="nb">hash</span><span class="p">(</span><span class="s">&#39;1&#39;</span><span class="p">)</span> <span class="o">&lt;</span> <span class="nb">hash</span><span class="p">(</span><span class="s">&#39;0&#39;</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="nb">hash</span><span class="p">(</span><span class="s">&#39;1&#39;</span><span class="p">),</span> <span class="nb">hash</span><span class="p">(</span><span class="s">&#39;0&#39;</span><span class="p">))</span>
 </pre></div>
 
 </div>
@@ -1887,37 +296,7 @@ Favorite_Language: Python
 
 <div class="output_area"><div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>First name: Brian
-Last name: Kernighan
-Famous Book: The C Programming Language
-Favorite Language: C
-
-
-First name: Ken
-Last name: Thompson
-Alma Mater: UC Berkeley
-Age: 70
-
-
-First name: Adele
-Last name: Goldberg
-Age: 68
-Favorite Language: Smalltalk
-
-
-First name: Dennis
-Last name: Ritchie
-Famous Book: The C Programming Language
-Favorite Language: C
-Died: 2011
-
-
-First name: Guido
-Last name: Van Rossum
-Company: Dropbox
-Favorite Language: Python
-
-
+<pre>8187472419094189012 5816967717718356436
 </pre>
 </div>
 </div>
@@ -1926,45 +305,642 @@ Favorite Language: Python
 </div>
 
 </div>
-    </div></section><section>
-    
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[12]:</div>
 <div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>There is plenty more to learn about using functions, but with all of this flexibility in terms of how to accept arguments for your functions you should be able to write simple, clean functions that do exactly what you need them to do.</p>
-
-</div>
-</div>
-</div><div style=display:none>
-    
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p><a href="#top">top</a></p>
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span class="n">d</span> <span class="o">=</span> <span class="p">{</span><span class="s">&#39;0&#39;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="s">&#39;1&#39;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span> <span class="s">&#39;2&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s">&#39;1&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">}</span>
+<span class="nb">sorted</span><span class="p">(</span><span class="n">d</span><span class="o">.</span><span class="n">items</span><span class="p">())</span>
+</pre></div>
 
 </div>
 </div>
 </div>
-    </div><div style=display:none>
-    
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt output_prompt">Out[12]:</div>
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>[(&apos;0&apos;, 0), (&apos;1&apos;, 1), (&apos;2&apos;, 1)]</pre>
 </div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[11]:</div>
 <div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p><a href="07_dictionaries.ipynb">Previous: Dictionaries</a> | 
-<a href="Index.ipynb">Home</a> |
-<a href="09_classes.ipynb">Next: Classes</a></p>
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span class="n">t</span> <span class="o">=</span> <span class="p">[(</span><span class="s">&#39;0&#39;</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="p">(</span><span class="s">&#39;1&#39;</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span> <span class="p">(</span><span class="s">&#39;2&#39;</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="p">(</span><span class="s">&#39;1&#39;</span><span class="p">,</span> <span class="mi">1</span><span class="p">),]</span>
+<span class="nb">sorted</span><span class="p">(</span><span class="n">t</span><span class="p">)</span>
+</pre></div>
 
 </div>
 </div>
 </div>
-    </div></section>
-    </section>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt output_prompt">Out[11]:</div>
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>[(&apos;0&apos;, 0), (&apos;1&apos;, 1), (&apos;1&apos;, 2), (&apos;2&apos;, 1)]</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[8]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">d</span><span class="o">.</span><span class="n">items</span><span class="p">()):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="n">d</span><span class="p">[</span><span class="n">key</span><span class="p">])</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>0 0
+1 1
+2 2
+3 3
+4 4
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[13]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span class="kn">from</span> <span class="nn">collections</span> <span class="k">import</span> <span class="n">OrderedDict</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[14]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span class="n">OrderedDict</span><span class="o">?</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[21]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span class="n">d</span> <span class="o">=</span> <span class="p">{}</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">):</span>
+    <span class="n">d</span><span class="p">[</span><span class="nb">str</span><span class="p">(</span><span class="n">i</span><span class="p">)]</span> <span class="o">=</span> <span class="n">i</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">d</span><span class="p">)</span>
+
+<span class="n">od</span> <span class="o">=</span> <span class="n">OrderedDict</span><span class="p">()</span>
+<span class="n">od</span><span class="p">[</span><span class="s">&#39;5&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">5</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">):</span>
+    <span class="n">od</span><span class="p">[</span><span class="nb">str</span><span class="p">(</span><span class="n">i</span><span class="p">)]</span> <span class="o">=</span> <span class="n">i</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">od</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>{&apos;1&apos;: 1, &apos;0&apos;: 0, &apos;3&apos;: 3, &apos;4&apos;: 4, &apos;2&apos;: 2}
+OrderedDict([(&apos;5&apos;, 5), (&apos;0&apos;, 0), (&apos;1&apos;, 1), (&apos;2&apos;, 2), (&apos;3&apos;, 3), (&apos;4&apos;, 4)])
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[22]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">d</span><span class="o">.</span><span class="n">keys</span><span class="p">()):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="n">d</span><span class="p">[</span><span class="n">key</span><span class="p">])</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>0 0
+1 1
+2 2
+3 3
+4 4
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[24]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">od</span><span class="o">.</span><span class="n">keys</span><span class="p">()):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="n">od</span><span class="p">[</span><span class="n">key</span><span class="p">])</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>0 0
+1 1
+2 2
+3 3
+4 4
+5 5
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[25]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[26]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span class="n">M</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[27]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span class="n">M</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt output_prompt">Out[27]:</div>
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>array([[ 1.30910158,  1.64698769,  0.03568348],
+       [-0.73113206, -1.56894237, -0.33729092],
+       [ 0.94935101, -1.44150959,  0.10725782]])</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[30]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span class="o">%%</span><span class="k">timeit</span>
+M = np.random.randn(3, 3)
+for i in range(2):
+    for j in range(2):
+        M[i, j] = 0.
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>100000 loops, best of 3: 5.76 µs per loop
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[31]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span class="n">M</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt output_prompt">Out[31]:</div>
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>array([[ 0.        ,  0.        ,  0.03568348],
+       [ 0.        ,  0.        , -0.33729092],
+       [ 0.94935101, -1.44150959,  0.10725782]])</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[36]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span class="o">%%</span><span class="k">timeit</span> 
+
+M = np.random.randn(3, 3)
+M[:2, :2] = 0
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>100000 loops, best of 3: 4.2 µs per loop
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[37]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[38]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span class="n">x</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt output_prompt">Out[38]:</div>
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>array([ 0. ,  0.5,  1. ,  1.5,  2. ,  2.5,  3. ,  3.5,  4. ,  4.5,  5. ,
+        5.5,  6. ,  6.5,  7. ,  7.5,  8. ,  8.5,  9. ,  9.5])</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[39]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span class="n">mask</span> <span class="o">=</span> <span class="n">x</span> <span class="o">&gt;</span> <span class="mf">5.</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[40]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span class="n">mask</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt output_prompt">Out[40]:</div>
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>array([False, False, False, False, False, False, False, False, False,
+       False, False,  True,  True,  True,  True,  True,  True,  True,
+        True,  True], dtype=bool)</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[41]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span class="n">x</span><span class="p">[</span><span class="n">mask</span><span class="p">]</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt output_prompt">Out[41]:</div>
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>array([ 5.5,  6. ,  6.5,  7. ,  7.5,  8. ,  8.5,  9. ,  9.5])</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[42]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span class="n">x</span><span class="p">[</span><span class="n">x</span><span class="o">&gt;</span><span class="mi">5</span><span class="p">]</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt output_prompt">Out[42]:</div>
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>array([ 5.5,  6. ,  6.5,  7. ,  7.5,  8. ,  8.5,  9. ,  9.5])</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[44]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span class="n">x</span><span class="o">.</span><span class="n">size</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt output_prompt">Out[44]:</div>
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>20</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[45]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span class="n">x1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">2</span><span class="p">))</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[46]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span class="n">x1</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt output_prompt">Out[46]:</div>
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>array([[ 0. ,  0.5],
+       [ 1. ,  1.5],
+       [ 2. ,  2.5],
+       [ 3. ,  3.5],
+       [ 4. ,  4.5],
+       [ 5. ,  5.5],
+       [ 6. ,  6.5],
+       [ 7. ,  7.5],
+       [ 8. ,  8.5],
+       [ 9. ,  9.5]])</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[47]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span class="n">x1</span><span class="p">[</span><span class="n">x1</span><span class="o">&gt;</span><span class="mi">5</span><span class="p">]</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt output_prompt">Out[47]:</div>
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>array([ 5.5,  6. ,  6.5,  7. ,  7.5,  8. ,  8.5,  9. ,  9.5])</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre> 
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
 </div>
 </div>
 
